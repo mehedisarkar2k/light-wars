@@ -1,0 +1,48 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* style added to components layer */
+@layer components {
+  .btn {
+    @apply cursor-pointer border-none focus:outline-none px-6 py-3 rounded-md;
+  }
+}
+
+/* custom classes */
+.my-container {
+  @apply w-full py-14 mx-auto;
+}
+
+@media (min-width: 576px) {
+  .my-container {
+    max-width: 540px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .my-container {
+    max-width: 720px !important;
+  }
+}
+@media (min-width: 992px) {
+  .my-container {
+    max-width: 970px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .my-container {
+    max-width: 1170px !important;
+  }
+  .userImg {
+    display: block;
+  }
+}
+@media (min-width: 1400px) {
+  .my-container {
+    max-width: 1320px !important;
+  }
+}
