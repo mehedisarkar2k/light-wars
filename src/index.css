@@ -15,7 +15,7 @@
   }
 
   input:focus-within ~ label {
-    @apply transform scale-75 -translate-y-6 text-teal-700 duration-300;
+    @apply transform scale-95  text-teal-700 duration-300;
   }
 
   input:focus-within ~ label,

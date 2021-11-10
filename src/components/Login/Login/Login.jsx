@@ -2,16 +2,20 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { GrClose } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import useSignMethod from "../../../hooks/useSignMethod";
 
-const LoginIn = () => {
+const Login = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   const history = useHistory();
+  const { user } = useAuth();
+  const { handleGoogleSignIn } = useSignMethod();
 
   return (
-    <div className="bg-teal-50">
+    <div className="bg-teal-50 ">
       <div className="flex items-center justify-center min-h-screen">
-        <div className="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden py-10 px-20 bg-white relative">
+        <div className="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden py-10 px-20 bg-white relative z-1">
           <div
             onClick={() => history.push("/")}
             className="absolute top-2 left-0 btn px-4 animate-bounce "
@@ -27,35 +31,36 @@ const LoginIn = () => {
             </div>
 
             <div className="grid grid-cols-6 gap-6 space-y-2">
-              <div className="col-span-6 relative border-b-2 focus-within:border-teal-700">
+              <div className="relative col-span-6">
                 <input
-                  required
                   {...register("email")}
-                  type="email"
+                  id="email"
                   name="email"
-                  placeholder=" "
-                  className="block w-full appearance-none focus:outline-none bg-transparent"
+                  type="email"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  placeholder="john@doe.com"
                 />
                 <label
                   htmlFor="email"
-                  className="absolute top-0 -z-1 duration-300 origin-0"
+                  className="absolute left-0 top-3 text-gray-600 text-sm transition-all"
                 >
-                  Email
+                  Email address
                 </label>
               </div>
 
-              <div className="col-span-6 relative border-b-2 focus-within:border-teal-700">
+              <div className="relative col-span-6">
                 <input
                   required
                   {...register("password")}
+                  id="password"
                   type="password"
                   name="password"
-                  placeholder=" "
-                  className="block w-full appearance-none focus:outline-none bg-transparent"
+                  placeholder="12345"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
                 />
                 <label
                   htmlFor="password"
-                  className="absolute top-0 -z-1 duration-300 origin-0"
+                  className="absolute left-0 top-3 text-gray-600 text-sm transition-all"
                 >
                   Password
                 </label>
@@ -81,7 +86,9 @@ const LoginIn = () => {
 
           <div className="flex flex-col space-x-4 justify-center items-center mt-6">
             <p className="text-2xl text-teal-600 mb-2">or</p>
-            <button className="btn btn-primary">Continue with google</button>
+            <button onClick={handleGoogleSignIn} className="btn btn-primary">
+              Continue with google
+            </button>
           </div>
         </div>
       </div>
@@ -89,4 +96,4 @@ const LoginIn = () => {
   );
 };
 
-export default LoginIn;
+export default Login;

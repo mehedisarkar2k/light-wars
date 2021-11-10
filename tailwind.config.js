@@ -12,9 +12,6 @@ module.exports = {
       transformOrigin: {
         0: "0%",
       },
-      zIndex: {
-        "-1": "-1",
-      },
       colors: {
         // Build your palette here
         transparent: "transparent",

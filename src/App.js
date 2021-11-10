@@ -1,48 +1,57 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import LoginIn from "./components/Login/Login/LoginIn";
+import Login from "./components/Login/Login/Login";
+import PrivateRoute from "./components/Login/Login/Private/PrivateRoute";
 import Register from "./components/Login/Login/Register";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
+import Dashboard from "./components/Pages/Dashboard/Dashboard";
 import Explore from "./components/Pages/Explore/Explore";
 import Home from "./components/Pages/Home/Home";
 import NotFound from "./components/Pages/NotFound/NotFound";
+import AuthProvider from "./context/AuthProvider";
 
 function App() {
   // https://light-wars.herokuapp.com/glasses?limit=8
 
   return (
     <div className="flex flex-col min-h-screen font-poppins">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route path="/home">
-            <Home />
-          </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
 
-          <Route path="/explore">
-            <Explore />
-          </Route>
+            <Route path="/explore">
+              <Explore />
+            </Route>
 
-          <Route path="/about">
-            <AboutUs />
-          </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
 
-          <Route path="/login">
-            <LoginIn />
-          </Route>
+            <Route path="/about">
+              <AboutUs />
+            </Route>
 
-          <Route path="/register">
-            <Register />
-          </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+            <Route path="/register">
+              <Register />
+            </Route>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
