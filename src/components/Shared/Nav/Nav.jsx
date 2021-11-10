@@ -1,11 +1,16 @@
 import { Transition } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import useFirebase from "../../../hooks/useFirebase";
 import Logo from "../../../images/logo.png";
+import Spinner from "../Loader/Spinner";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [windowHeight, setWindowHeight] = useState(false);
+  const { user } = useAuth();
+  const { isLoading, signOutUser } = useFirebase();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +20,17 @@ function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     // <div className="fixed top-0 left-0 w-screen">
     <div className="w-full">
       <nav
-        className={`px-10 sm:px-0 lg:px-10 py-2 md:py-4 lg:py-2 ${
-          windowHeight && "shadow-md fixed top-0 w-full bg-white"
-        }`}
+        className={`px-10 sm:px-0 lg:px-10 py-2 md:py-4 lg:py-2 bg-transparent fixed top-0 w-full bg-gray-400 ${
+          !windowHeight && "md:bg-transparent"
+        } ${windowHeight && "shadow-md bg-gray-400 z-10"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -37,42 +46,56 @@ function Nav() {
               <div className="ml-auto hidden md:block">
                 <div className="ml-10 flex items-center space-x-2">
                   <NavLink
-                    activeClassName="text-teal-600 font-bold"
+                    activeClassName="text-teal-400 font-bold"
                     to="/home"
-                    className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                   >
                     Home
                   </NavLink>
 
                   <NavLink
-                    activeClassName="text-teal-600 font-bold"
+                    activeClassName="text-teal-400 font-bold"
                     to="/explore"
-                    className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                   >
                     Explore
                   </NavLink>
 
-                  <NavLink
-                    activeClassName="text-teal-600 font-bold"
-                    to="/dashboard"
-                    className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
-                  >
-                    Dashboard
-                  </NavLink>
+                  {user?.email && (
+                    <NavLink
+                      activeClassName="text-teal-400 font-bold"
+                      to="/dashboard"
+                      className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                    >
+                      Dashboard
+                    </NavLink>
+                  )}
 
                   <NavLink
-                    activeClassName="text-teal-600 font-bold"
+                    activeClassName="text-teal-400 font-bold"
                     to="/about"
-                    className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                   >
                     About Us
                   </NavLink>
 
-                  <NavLink className="flex-shrink-0 block" to="login">
-                    <button className="btn btn-primary text-lg rounded-full py-1">
-                      Log In
+                  {user?.email ? (
+                    <button
+                      onClick={signOutUser}
+                      className="btn btn-danger px-2 py-0.5 rounded-full text-lg  "
+                    >
+                      Logout{" "}
+                      <span className="text-sm">
+                        ({user?.displayName.split(" ")[0]})
+                      </span>
                     </button>
-                  </NavLink>
+                  ) : (
+                    <NavLink className="flex-shrink-0 block" to="login">
+                      <button className="btn btn-primary text-lg rounded-full py-1">
+                        Log In
+                      </button>
+                    </NavLink>
+                  )}
                 </div>
               </div>
             </div>
@@ -136,45 +159,59 @@ function Nav() {
             <div className="text-center md:hidden" id="mobile-menu">
               <div
                 ref-setter={ref}
-                className="px-2 pt-2 pb-3 space-y-1 sm:px-3"
+                className=" px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
                 <NavLink
-                  activeClassName="text-teal-600 font-bold"
+                  activeClassName="text-teal-400 font-bold"
                   to="/home"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                 >
                   Home
                 </NavLink>
 
                 <NavLink
-                  activeClassName="text-teal-600 font-bold"
+                  activeClassName="text-teal-400 font-bold"
                   to="/explore"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                 >
                   Explore
                 </NavLink>
 
-                <NavLink
-                  activeClassName="text-teal-600 font-bold"
-                  to="/dashboard"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
-                >
-                  Dashboard
-                </NavLink>
+                {user?.email && (
+                  <NavLink
+                    activeClassName="text-teal-400 font-bold"
+                    to="/dashboard"
+                    className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                  >
+                    Dashboard
+                  </NavLink>
+                )}
 
                 <NavLink
-                  activeClassName="text-teal-600 font-bold"
+                  activeClassName="text-teal-400 font-bold"
                   to="/about"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
                 >
                   About Us
                 </NavLink>
 
-                <NavLink className="block" to="login">
-                  <button className="btn btn-primary text-lg rounded-full py-1">
-                    Log In
+                {user?.email ? (
+                  <button
+                    onClick={signOutUser}
+                    className="btn btn-danger px-2 py-0.5 rounded-full text-lg  "
+                  >
+                    Logout{" "}
+                    <span className="text-sm">
+                      ({user?.displayName.split(" ")[0]})
+                    </span>
                   </button>
-                </NavLink>
+                ) : (
+                  <NavLink className="flex-shrink-0 block" to="login">
+                    <button className="btn btn-primary text-lg rounded-full py-1">
+                      Log In
+                    </button>
+                  </NavLink>
+                )}
               </div>
             </div>
           )}

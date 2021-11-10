@@ -1,15 +1,19 @@
 import React from "react";
 import Nav from "../../Shared/Nav/Nav";
+import About from "./About/About";
 import Banner from "./Banner/Banner";
+import Categories from "./Categories/Categories";
+import Products from "./Products/Products";
 
 const Home = () => {
   return (
     <>
-      <div className="">
-        <Nav />
-        <Banner />
-      </div>
-      <h1>This is Home</h1>
+      <Nav />
+      <Banner />
+      <Categories />
+      <About />
+
+      <Products />
     </>
   );
 };

@@ -11,8 +11,6 @@ import NotFound from "./components/Pages/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
-  // https://light-wars.herokuapp.com/glasses?limit=8
-
   return (
     <div className="flex flex-col min-h-screen font-poppins">
       <AuthProvider>
