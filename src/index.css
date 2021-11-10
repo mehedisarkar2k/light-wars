@@ -11,7 +11,16 @@
     @apply cursor-pointer border-none focus:outline-none px-6 py-3 rounded-md;
   }
   .btn-primary {
-    @apply text-white bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 hover:bg-red-500 hover:shadow-md;
+    @apply text-white bg-teal-700 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 hover:bg-teal-600 hover:shadow-md;
+  }
+
+  input:focus-within ~ label {
+    @apply transform scale-75 -translate-y-6 text-teal-700 duration-300;
+  }
+
+  input:focus-within ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply transform scale-75 -translate-y-6;
   }
 }
 

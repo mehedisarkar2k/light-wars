@@ -37,7 +37,7 @@ function Nav() {
               <div className="ml-auto hidden md:block">
                 <div className="ml-10 flex items-center space-x-2">
                   <NavLink
-                    activeClassName="text-red-500 font-bold"
+                    activeClassName="text-teal-600 font-bold"
                     to="/home"
                     className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                   >
@@ -45,7 +45,7 @@ function Nav() {
                   </NavLink>
 
                   <NavLink
-                    activeClassName="text-red-500 font-bold"
+                    activeClassName="text-teal-600 font-bold"
                     to="/explore"
                     className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                   >
@@ -53,7 +53,7 @@ function Nav() {
                   </NavLink>
 
                   <NavLink
-                    activeClassName="text-red-500 font-bold"
+                    activeClassName="text-teal-600 font-bold"
                     to="/dashboard"
                     className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                   >
@@ -61,7 +61,7 @@ function Nav() {
                   </NavLink>
 
                   <NavLink
-                    activeClassName="text-red-500 font-bold"
+                    activeClassName="text-teal-600 font-bold"
                     to="/about"
                     className="text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                   >
@@ -139,7 +139,7 @@ function Nav() {
                 className="px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
                 <NavLink
-                  activeClassName="text-red-500 font-bold"
+                  activeClassName="text-teal-600 font-bold"
                   to="/home"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                 >
@@ -147,7 +147,7 @@ function Nav() {
                 </NavLink>
 
                 <NavLink
-                  activeClassName="text-red-500 font-bold"
+                  activeClassName="text-teal-600 font-bold"
                   to="/explore"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                 >
@@ -155,7 +155,7 @@ function Nav() {
                 </NavLink>
 
                 <NavLink
-                  activeClassName="text-red-500 font-bold"
+                  activeClassName="text-teal-600 font-bold"
                   to="/dashboard"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                 >
@@ -163,7 +163,7 @@ function Nav() {
                 </NavLink>
 
                 <NavLink
-                  activeClassName="text-red-500 font-bold"
+                  activeClassName="text-teal-600 font-bold"
                   to="/about"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-700"
                 >
