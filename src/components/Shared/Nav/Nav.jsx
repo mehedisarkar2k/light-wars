@@ -86,7 +86,7 @@ function Nav() {
                     >
                       Logout{" "}
                       <span className="text-sm">
-                        ({user?.displayName.split(" ")[0]})
+                        ({user?.displayName?.split(" ")[0]})
                       </span>
                     </button>
                   ) : (
@@ -202,7 +202,7 @@ function Nav() {
                   >
                     Logout{" "}
                     <span className="text-sm">
-                      ({user?.displayName.split(" ")[0]})
+                      ({user?.displayName?.split(" ")[0]})
                     </span>
                   </button>
                 ) : (

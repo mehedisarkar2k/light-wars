@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div
       style={{
-        background: `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(${BannerBG}) center center/cover fixed no-repeat`,
+        background: `linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),url(${BannerBG}) center center/cover fixed no-repeat`,
       }}
       className=""
     >

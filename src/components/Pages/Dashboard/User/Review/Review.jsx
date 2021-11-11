@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { List, ListItem, Range } from "tailwind-mobile/react";
 
 const Review = () => {
-  const [rating, setRating] = useState(5);
+  const [rating, setRating] = useState(4.7);
 
   return (
     <div>

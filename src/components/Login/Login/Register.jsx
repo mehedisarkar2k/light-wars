@@ -2,11 +2,18 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { GrClose } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
+import useSignMethod from "../../../hooks/useSignMethod";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { handleNewUserWithEmail } = useSignMethod();
   const history = useHistory();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data) => {
+    const fullName = data.fName + " " + data.lName;
+    handleNewUserWithEmail(data.email, data.password, fullName);
+    console.log(data);
+  };
 
   return (
     <div className="bg-teal-50">
@@ -33,7 +40,7 @@ const Register = () => {
                   id="fName"
                   name="fName"
                   type="text"
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                   placeholder="john@doe.com"
                 />
                 <label
@@ -49,7 +56,7 @@ const Register = () => {
                   id="lName"
                   name="lName"
                   type="text"
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                   placeholder="john@doe.com"
                 />
                 <label
@@ -66,7 +73,7 @@ const Register = () => {
                   id="email"
                   name="email"
                   type="email"
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                   placeholder="john@doe.com"
                 />
                 <label
@@ -85,7 +92,7 @@ const Register = () => {
                   name="password"
                   id="password"
                   placeholder=" "
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                 />
                 <label
                   htmlFor="password"

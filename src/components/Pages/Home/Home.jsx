@@ -12,7 +12,11 @@ const Home = () => {
       <Nav />
       <Banner />
       <Categories />
-      <About />
+      <About>
+        <div className="flex items-center justify-center">
+          <button className="btn btn-primary">About Us</button>
+        </div>
+      </About>
 
       <Products />
 

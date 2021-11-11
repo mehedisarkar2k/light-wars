@@ -40,9 +40,9 @@ const useFirebase = () => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const createUserWithEmail = () => {
+  const createUserWithEmail = (email, password) => {
     setIsLoading(true);
-
+    console.log(email, password);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 

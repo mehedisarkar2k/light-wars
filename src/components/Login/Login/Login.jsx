@@ -35,7 +35,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                   placeholder="john@doe.com"
                 />
                 <label
@@ -54,7 +54,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="12345"
-                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600"
+                  className="h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-teal-600 focus:ring-0 border-0"
                 />
                 <label
                   htmlFor="password"

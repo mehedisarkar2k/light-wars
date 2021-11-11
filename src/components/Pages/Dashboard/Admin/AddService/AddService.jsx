@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { List, ListItem, Range } from "tailwind-mobile/react";
 
 const AddService = () => {
-  const [price, setPrice] = useState(0);
-  const [rating, setRating] = useState(3.5);
+  const [price, setPrice] = useState(150);
 
   return (
     <div>
@@ -67,33 +66,6 @@ const AddService = () => {
                       onChange={(e) => setPrice(e.target.value)}
                     />
                     <span>$500</span>
-                  </>
-                }
-              />
-            </List>
-          </div>
-
-          <div className="w-full items-center grid grid-cols-6">
-            <h4 className="col-span-6 md:col-span-2 text-xl font-semibold">
-              Rating: {rating}
-            </h4>
-            <List
-              className="col-span-6 md:col-span-4 text-xl font-semibold md:px-10"
-              style={{ margin: "0 10px" }}
-            >
-              <ListItem
-                innerClassName="flex space-x-4 "
-                innerChildren={
-                  <>
-                    <span>0</span>
-                    <Range
-                      value={rating}
-                      step={0.1}
-                      min={0}
-                      max={5}
-                      onChange={(e) => setRating(e.target.value)}
-                    />
-                    <span>5</span>
                   </>
                 }
               />

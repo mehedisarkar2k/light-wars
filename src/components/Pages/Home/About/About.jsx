@@ -1,7 +1,7 @@
 import React from "react";
 import show from "../.../../../../../images/show.jpeg";
 
-const About = () => {
+const About = ({ children }) => {
   return (
     <div className="bg-gray-50">
       <div className="my-container">
@@ -27,9 +27,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center">
-          <button className="btn btn-primary">About Us</button>
-        </div>
+        <div className="">{children}</div>
       </div>
     </div>
   );

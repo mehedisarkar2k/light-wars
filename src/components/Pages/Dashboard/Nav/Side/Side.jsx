@@ -13,6 +13,7 @@ import { GrAdd, GrServices } from "react-icons/gr";
 import { useHistory, useRouteMatch } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../../../hooks/useAuth";
+import useFirebase from "../../../../../hooks/useFirebase";
 import useWindowSize from "../../../../../hooks/useWindowSize";
 import Content from "../../Content/Content";
 
@@ -22,7 +23,8 @@ const Side = () => {
   const [menuSHow, setMenuShow] = useState(false);
   let { path, url } = useRouteMatch();
   const { user } = useAuth();
-  console.log(user);
+
+  const { signOutUser } = useFirebase();
 
   const menuBar = menuSHow ? (
     <AiOutlineMenuUnfold
@@ -52,7 +54,7 @@ const Side = () => {
           <img src={user?.photoURL} alt="" className="w-10 h-10 rounded-full" />
           <div>
             <h2 className="text-lg text-gray-800 font-bold">
-              {user?.displayName}{" "}
+              {user?.email}{" "}
               <span className="text-base font-normal">(admin)</span>
             </h2>
           </div>
@@ -155,7 +157,10 @@ const Side = () => {
               </Link>
             </li>
 
-            <li className="flex items-center p-2 space-x-3 rounded-md cursor-pointer hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition">
+            <li
+              onClick={signOutUser}
+              className="flex items-center p-2 space-x-3 rounded-md cursor-pointer hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+            >
               <BiLogOut />
               <span>Logout</span>
             </li>
