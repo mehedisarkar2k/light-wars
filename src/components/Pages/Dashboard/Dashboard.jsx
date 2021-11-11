@@ -1,9 +1,10 @@
 import React from "react";
+import Side from "./Nav/Side/Side";
 
 const Dashboard = () => {
   return (
     <div>
-      <h2>This is dashboard</h2>
+      <Side />
     </div>
   );
 };

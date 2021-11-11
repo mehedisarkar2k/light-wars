@@ -27,6 +27,7 @@ module.exports = {
       display: ["hover", "group-hover"],
     },
     transitionProperty: ["hover", "focus", "group-hover"],
+    fontWeight: ["hover", "focus"],
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
