@@ -2,14 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { GrClose } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 import useSignMethod from "../../../hooks/useSignMethod";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   const history = useHistory();
-  const { user } = useAuth();
   const { handleGoogleSignIn } = useSignMethod();
 
   return (

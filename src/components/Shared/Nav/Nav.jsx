@@ -28,9 +28,9 @@ function Nav() {
     // <div className="fixed top-0 left-0 w-screen">
     <div className="w-full">
       <nav
-        className={`px-10 sm:px-0 lg:px-10 py-2 md:py-4 lg:py-2 bg-transparent fixed top-0 w-full bg-gray-400 ${
+        className={`px-10 sm:px-0 lg:px-10 py-2 md:py-4 lg:py-2 bg-transparent fixed top-0 w-full text-gray-100 bg-gray-200 ${
           !windowHeight && "md:bg-transparent"
-        } ${windowHeight && "shadow-md bg-gray-400 z-10"}`}
+        } ${windowHeight && "shadow-md z-10 text-gray-700"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -48,7 +48,7 @@ function Nav() {
                   <NavLink
                     activeClassName="text-teal-400 font-bold"
                     to="/home"
-                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl"
                   >
                     Home
                   </NavLink>
@@ -56,7 +56,7 @@ function Nav() {
                   <NavLink
                     activeClassName="text-teal-400 font-bold"
                     to="/explore"
-                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl"
                   >
                     Explore
                   </NavLink>
@@ -65,7 +65,7 @@ function Nav() {
                     <NavLink
                       activeClassName="text-teal-400 font-bold"
                       to="/dashboard"
-                      className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                      className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl"
                     >
                       Dashboard
                     </NavLink>
@@ -74,7 +74,7 @@ function Nav() {
                   <NavLink
                     activeClassName="text-teal-400 font-bold"
                     to="/about"
-                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                    className="text-lg hover:text-teal-400 tracking-wide px-3 py-1 rounded-3xl"
                   >
                     About Us
                   </NavLink>
@@ -164,7 +164,7 @@ function Nav() {
                 <NavLink
                   activeClassName="text-teal-400 font-bold"
                   to="/home"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
                 >
                   Home
                 </NavLink>
@@ -172,7 +172,7 @@ function Nav() {
                 <NavLink
                   activeClassName="text-teal-400 font-bold"
                   to="/explore"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
                 >
                   Explore
                 </NavLink>
@@ -181,7 +181,7 @@ function Nav() {
                   <NavLink
                     activeClassName="text-teal-400 font-bold"
                     to="/dashboard"
-                    className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                    className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
                   >
                     Dashboard
                   </NavLink>
@@ -190,7 +190,7 @@ function Nav() {
                 <NavLink
                   activeClassName="text-teal-400 font-bold"
                   to="/about"
-                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl text-gray-100"
+                  className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
                 >
                   About Us
                 </NavLink>

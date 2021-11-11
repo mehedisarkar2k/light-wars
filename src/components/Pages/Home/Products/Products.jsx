@@ -11,11 +11,23 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      <div className="my-container grid grid-cols-3 gap-6">
-        {products?.map((pd) => (
-          <Product key={pd._id} product={pd} />
-        ))}
+    <div className="py-20">
+      <div className="my-container">
+        <h3 className="text-teal-600 text-4xl mb-10 text-center">
+          Our Popular Products
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products?.map((pd) => (
+            <Product key={pd._id} product={pd} />
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center mt-10">
+          <button className="btn btn-primary inline-block">
+            See All Products
+          </button>
+        </div>
       </div>
     </div>
   );

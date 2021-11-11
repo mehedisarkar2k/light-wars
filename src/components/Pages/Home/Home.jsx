@@ -4,6 +4,7 @@ import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
 import Products from "./Products/Products";
+import Reviews from "./Reviews/Reviews";
 
 const Home = () => {
   return (
@@ -14,6 +15,8 @@ const Home = () => {
       <About />
 
       <Products />
+
+      <Reviews />
     </>
   );
 };
