@@ -4,6 +4,7 @@ import {
   AiOutlineMenuFold,
   AiOutlineMenuUnfold,
   AiOutlineUserAdd,
+  AiOutlineWallet,
 } from "react-icons/ai";
 import { BiLogOut, BiMessageRoundedDots } from "react-icons/bi";
 import { CgShoppingCart } from "react-icons/cg";
@@ -77,6 +78,29 @@ const Side = () => {
                 <span>My Orders</span>
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                to={`${url}/payment`}
+                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+              >
+                <AiOutlineWallet />
+                <span>Payment</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to={`${url}/review`}
+                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+              >
+                <BiMessageRoundedDots />
+                <span>Review</span>
+              </NavLink>
+            </li>
+
             <li>
               <NavLink
                 to={`${url}/order-list`}
@@ -116,16 +140,6 @@ const Side = () => {
               >
                 <GrServices />
                 <span>Manage Service</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={`${url}/review`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <BiMessageRoundedDots />
-                <span>Review</span>
               </NavLink>
             </li>
           </ul>
