@@ -1,13 +1,49 @@
 import React, { useState } from "react";
 import { List, ListItem, Range } from "tailwind-mobile/react";
+import useAuth from "../../../../../hooks/useAuth";
 
 const Review = () => {
+  const { user } = useAuth();
   const [rating, setRating] = useState(4.7);
+  const [review, setReview] = useState({
+    name: user?.displayName || user?.email?.split("@")[0],
+    rating: rating + "",
+    email: user?.email,
+    message: "",
+    img: "",
+  });
+
+  const onChangeHandler = (e) => {
+    const filed = e.target.name;
+    const value = e.target.value;
+    const newReview = { ...review };
+    newReview[filed] = value;
+    newReview.img =
+      user?.photoURL || "https://i.ibb.co/NWjQBKP/review-user.webp";
+    newReview.rating = rating.toString();
+    setReview(newReview);
+  };
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div>
       <div className="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
-        <form className="mb-0 space-y-6" action="#" method="POST">
+        <form onSubmit={formSubmit} className="mb-0 space-y-6">
           <div className="w-full">
             <label
               htmlFor="name"
@@ -17,6 +53,9 @@ const Review = () => {
             </label>
             <div className="mt-1">
               <input
+                value={user?.displayName || user?.email?.split("@")[0]}
+                readOnly
+                onBlur={onChangeHandler}
                 id="name"
                 name="name"
                 type="text"
@@ -36,6 +75,9 @@ const Review = () => {
             </label>
             <div className="mt-1">
               <input
+                value={user?.email}
+                readOnly
+                onBlur={onChangeHandler}
                 id="email"
                 name="email"
                 type="email"
@@ -55,6 +97,7 @@ const Review = () => {
             </label>
             <div className="mt-1">
               <textarea
+                onBlur={onChangeHandler}
                 id="message"
                 name="message"
                 autoComplete="message"
@@ -78,6 +121,8 @@ const Review = () => {
                   <>
                     <span>0</span>
                     <Range
+                      onBlur={onChangeHandler}
+                      name="rating"
                       value={rating}
                       step={0.1}
                       min={0}

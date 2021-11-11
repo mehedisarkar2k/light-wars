@@ -51,7 +51,11 @@ const Side = () => {
           </h3>
         )}
         <div className="flex items-center p-2 space-x-4">
-          <img src={user?.photoURL} alt="" className="w-10 h-10 rounded-full" />
+          <img
+            src={user?.photoURL || "https://i.ibb.co/NWjQBKP/review-user.webp"}
+            alt=""
+            className="w-10 h-10 rounded-full"
+          />
           <div>
             <h2 className="text-lg text-gray-800 font-bold">
               {user?.email}{" "}

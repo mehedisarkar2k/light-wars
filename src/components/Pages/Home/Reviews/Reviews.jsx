@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Review from "./Review";
 
-const ratings = 3.2;
 const Reviews = () => {
+  const [allReview, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+
   const settings = {
     className: "center",
     centerMode: true,
@@ -56,8 +63,8 @@ const Reviews = () => {
         </h1>
 
         <Slider {...settings}>
-          {[...Array(12)].map((_, i) => (
-            <Review key={i} ratings={ratings} />
+          {allReview?.map((review) => (
+            <Review key={review._id} review={review} />
           ))}
         </Slider>
       </div>
