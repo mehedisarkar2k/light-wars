@@ -11,11 +11,14 @@ const AboutUsBanner = () => {
     >
       <div className="my-container">
         <div
-          data-aos="zoom-in"
           style={{ minHeight: "60vh" }}
           className="flex items-center justify-center"
         >
-          <div className="text-white text-left flex items-center justify-center flex-col">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            className="text-white text-left flex items-center justify-center flex-col"
+          >
             <p className="text-center space-y-2 text-5xl uppercase tracking-widest font-grandHotel text-emerald-500">
               <span className="inline-block"> Welcome to our Service</span>
               <br />

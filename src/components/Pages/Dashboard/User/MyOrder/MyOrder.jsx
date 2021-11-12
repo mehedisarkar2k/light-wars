@@ -33,11 +33,10 @@ const MyOrder = () => {
       }
     });
   };
-  useEffect(() => {
-    document.title = "My Orders | Lightwars";
-  }, []);
 
   useEffect(() => {
+    document.title = "My Orders | Lightwars";
+
     fetch(`https://light-wars.herokuapp.com/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
@@ -45,7 +44,11 @@ const MyOrder = () => {
 
   if (myOrders.length === 0)
     return (
-      <h1 className="text-red-500 text-center py-20 text-3xl">
+      <h1
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        className="text-red-500 text-center py-20 text-3xl"
+      >
         No Order Found!
         <Spinner />
       </h1>
@@ -53,7 +56,11 @@ const MyOrder = () => {
   if (myOrders.length < 1) return <Spinner />;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 mt-5 gap-4">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+      className="grid grid-cols-2 md:grid-cols-3 mt-5 gap-4"
+    >
       {myOrders?.map((myOrder) => (
         <div key={myOrder._id} className="rounded-md p-4 bg-white">
           <div className="flex items-center justify-between">

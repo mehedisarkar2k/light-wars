@@ -38,7 +38,7 @@ function Nav() {
               <NavLink to="/">
                 <div className="flex-shrink-0 flex items-center space-x-4">
                   <img className="w-10 h-auto" src={Logo} alt="" />
-                  <h2 className="text-teal-700 tracking-widest text-2xl sm:text-2xl lg:text-4xl font-bold font-grandHotel">
+                  <h2 className="text-teal-600 tracking-widest text-2xl sm:text-2xl lg:text-3xl font-bold font-grandHotel">
                     Light Wars
                   </h2>
                 </div>
@@ -82,7 +82,7 @@ function Nav() {
                   {user?.email ? (
                     <button
                       onClick={signOutUser}
-                      className="btn btn-danger px-2 py-0.5 rounded-full text-lg  "
+                      className="btn btn-primary px-2 py-0.5 rounded-full text-lg  "
                     >
                       Logout{" "}
                       <span className="text-sm">
@@ -201,7 +201,7 @@ function Nav() {
                 {user?.email ? (
                   <button
                     onClick={signOutUser}
-                    className="btn btn-danger px-2 py-0.5 rounded-full text-lg  "
+                    className="btn btn-primary px-2 py-0.5 rounded-full text-lg  "
                   >
                     Logout{" "}
                     <span className="text-sm">

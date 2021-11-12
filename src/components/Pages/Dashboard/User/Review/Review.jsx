@@ -16,7 +16,7 @@ const Review = () => {
   });
 
   useEffect(() => {
-    document.title = "Add Review| Lightwars";
+    document.title = "Make Review | Lightwars";
   }, []);
 
   const history = useHistory();
@@ -60,7 +60,12 @@ const Review = () => {
   return (
     <div>
       <div className="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
-        <form onSubmit={formSubmit} className="mb-0 space-y-6">
+        <form
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+          onSubmit={formSubmit}
+          className="mb-0 space-y-6"
+        >
           <div className="w-full">
             <label
               htmlFor="name"

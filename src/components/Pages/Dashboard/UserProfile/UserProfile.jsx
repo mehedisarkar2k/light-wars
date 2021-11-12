@@ -3,11 +3,12 @@ import useAuth from "../../../../hooks/useAuth";
 import userImg from "../../../../images/review_user.webp";
 
 const UserProfile = () => {
+  const { user, admin } = useAuth();
+
   useEffect(() => {
-    document.title = "My Profile | Lightwars";
+    document.title = "User Dashboard | Lightwars";
   }, []);
 
-  const { user, admin } = useAuth();
   return (
     <div className=" flex min-h-screen items-center justify-center">
       <div className="-mt-32 text-center flex-col flex items-center justify-center space-y-4">

@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useEffect } from "react";
 import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import About from "./About/About";
@@ -12,6 +11,7 @@ const Home = () => {
   useEffect(() => {
     document.title = "Home | Lightwars";
   }, []);
+
   return (
     <>
       <Nav />

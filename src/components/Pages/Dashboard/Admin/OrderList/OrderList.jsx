@@ -9,10 +9,6 @@ const OrderList = () => {
   const { user } = useAuth();
   const [isDelete, setIsDelete] = useState(null);
 
-  useEffect(() => {
-    document.title = "Order List | Lightwars";
-  }, []);
-
   const deleteOrder = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -91,6 +87,10 @@ const OrderList = () => {
   };
 
   useEffect(() => {
+    document.title = "Order List | Lightwars";
+  }, []);
+
+  useEffect(() => {
     fetch(`https://light-wars.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
@@ -98,7 +98,11 @@ const OrderList = () => {
 
   if (orders.length === 0)
     return (
-      <h1 className="text-red-500 text-center py-20 text-3xl">
+      <h1
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        className="text-red-500 text-center py-20 text-3xl"
+      >
         No Order Found! <Spinner />
       </h1>
     );
@@ -111,7 +115,11 @@ const OrderList = () => {
     <div>
       <div className="bg-white rounded-lg shadow-lg py-6">
         <div className="block overflow-x-auto mx-6">
-          <table className="w-full text-left rounded-lg">
+          <table
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            className="w-full text-left rounded-lg"
+          >
             <thead>
               <tr className="text-gray-700 border border-b-0">
                 <th className="px-4 py-3 font-bold">Order By</th>

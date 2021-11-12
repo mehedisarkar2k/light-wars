@@ -1,4 +1,4 @@
-import Aos from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -13,9 +13,7 @@ import NotFound from "./components/Pages/NotFound/NotFound";
 import PlaceOrder from "./components/Pages/PlaceOrder/PlaceOrder";
 import AuthProvider from "./context/AuthProvider";
 
-Aos.init({
-  duration: 2000,
-});
+AOS.init();
 
 function App() {
   return (

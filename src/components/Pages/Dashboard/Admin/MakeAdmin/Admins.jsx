@@ -74,7 +74,11 @@ const Admins = () => {
     <div>
       <div className="bg-white rounded-lg shadow-lg py-6">
         <div className="block overflow-x-auto mx-6">
-          <table className="w-full text-left rounded-lg">
+          <table
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            className="w-full text-left rounded-lg"
+          >
             <thead>
               <tr className="text-gray-700 border border-b-0">
                 <th className="px-4 py-3 font-bold">Thumb</th>

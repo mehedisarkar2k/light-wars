@@ -3,7 +3,7 @@ import sad from "../../../../../images/sad.png";
 
 const Payment = () => {
   useEffect(() => {
-    document.title = "Payment | Lightwars";
+    document.title = "Make Payment | Lightwars";
   }, []);
 
   return (

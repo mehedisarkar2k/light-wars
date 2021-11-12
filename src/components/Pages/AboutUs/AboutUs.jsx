@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
-import { useEffect } from "react/cjs/react.development";
 import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import About from "../Home/About/About";
@@ -14,7 +13,7 @@ const AboutUs = () => {
   };
 
   useEffect(() => {
-    document.title = "About Us | Lightwars";
+    document.title = "About US | Lightwars";
   }, []);
 
   return (

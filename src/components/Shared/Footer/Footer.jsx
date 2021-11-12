@@ -23,9 +23,8 @@ const Footer = () => {
       <div className="my-container">
         <div className="grid space-y-4 space-x-4 grid-cols-1 md:grid-cols-3">
           <div
-            data-aos="fade-right"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos="flip-right"
+            data-aos-duration="1500"
             className="space-y-2"
           >
             <h2 className="text-white text-3xl font-bold font-grandHotel tracking-widest">
@@ -45,9 +44,8 @@ const Footer = () => {
           </div>
 
           <div
-            data-aos="flip-left"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
+            data-aos="flip-up"
+            data-aos-duration="1500"
             className="flex md:justify-center"
           >
             <div className="">
@@ -86,13 +84,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div
-            data-aos="fade-left"
-            data-aos-anchor="#example-anchor"
-            data-aos-offset="500"
-            data-aos-duration="500"
-            className=""
-          >
+
+          <div data-aos="fade-left" data-aos-duration="1500" className="">
             <h3 className="text-3xl mb-2">Newsletter</h3>
             <p>
               Join us on a Villa Park Stadium Tour and Step behind the scenes.
@@ -111,9 +104,14 @@ const Footer = () => {
             </button>
           </div>
         </div>
+
         <hr className="my-6" />
 
-        <div data-aos="flip-left" className="flex items-center justify-between">
+        <div
+          data-aos="flip-down"
+          data-aos-duration="1500"
+          className="flex items-center justify-between"
+        >
           <p className="text-gray-200 text-sm">
             &copy;2021-2022{" "}
             <span className="text-white text-sm font-bold">

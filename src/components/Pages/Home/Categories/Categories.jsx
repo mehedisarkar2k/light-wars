@@ -7,7 +7,8 @@ const Categories = () => {
   return (
     <div className="md:-mt-48 my-container grid grid-cols-1 gap-8 md:grid-cols-3">
       <div
-        data-aos="zoom-in-down"
+        data-aos="fade-right"
+        data-aos-duration="1500"
         className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
       >
         <div className="h-80 overflow-hidden">
@@ -24,8 +25,10 @@ const Categories = () => {
           <p className="text-gray-700 text-base"></p>
         </div>
       </div>
+
       <div
-        data-aos="flip-right"
+        data-aos="flip-left"
+        data-aos-duration="1500"
         className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
       >
         <div className="h-80 overflow-hidden">
@@ -38,8 +41,10 @@ const Categories = () => {
           <p className="text-gray-700 text-base"></p>
         </div>
       </div>
+
       <div
-        data-aos="zoom-in-down"
+        data-aos="fade-left"
+        data-aos-duration="1500"
         className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
       >
         <div className="h-80 overflow-hidden">

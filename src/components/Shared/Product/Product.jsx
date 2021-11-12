@@ -12,7 +12,7 @@ const Product = ({ product }) => {
   return (
     <div
       data-aos="fade-up"
-      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="3000"
       className="overflow-hidden group border rounded-xl shadow-lg"
     >
       <div className="h-40 md:h-72 lg:h-56 relative">

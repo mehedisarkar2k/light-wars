@@ -9,10 +9,6 @@ const ManageService = () => {
   const [isDelete, setIsDelete] = useState(null);
   const history = useHistory();
 
-  useEffect(() => {
-    document.title = "Manage Service | Lightwars";
-  }, []);
-
   const deleteService = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -50,6 +46,10 @@ const ManageService = () => {
   };
 
   useEffect(() => {
+    document.title = "Manage Service | Lightwars";
+  }, []);
+
+  useEffect(() => {
     fetch("https://light-wars.herokuapp.com/glasses")
       .then((res) => res.json())
       .then((data) => setServices(data));
@@ -58,7 +58,11 @@ const ManageService = () => {
   if (services.length < 1) return <Spinner />;
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+      className="grid grid-cols-3 gap-4"
+    >
       {services.map((service) => (
         <SingleService
           key={service._id}
