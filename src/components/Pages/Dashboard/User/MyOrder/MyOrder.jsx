@@ -44,6 +44,7 @@ const MyOrder = () => {
     return (
       <h1 className="text-red-500 text-center py-20 text-3xl">
         No Order Found!
+        <Spinner />
       </h1>
     );
   if (myOrders.length < 1) return <Spinner />;

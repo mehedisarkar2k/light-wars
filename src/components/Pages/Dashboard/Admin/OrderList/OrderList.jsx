@@ -95,7 +95,7 @@ const OrderList = () => {
   if (orders.length === 0)
     return (
       <h1 className="text-red-500 text-center py-20 text-3xl">
-        No Order Found!
+        No Order Found! <Spinner />
       </h1>
     );
 
