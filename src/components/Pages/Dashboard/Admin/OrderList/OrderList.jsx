@@ -46,7 +46,6 @@ const OrderList = () => {
   const approveProduct = (order) => {
     const updateOrder = { ...order.order };
     updateOrder.status = "approved";
-    console.log(order, updateOrder);
 
     if (orders.length !== 0) {
       Swal.fire({

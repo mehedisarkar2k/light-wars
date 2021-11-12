@@ -10,7 +10,6 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     handleEmailPassSignIn(data.email, data.password);
-    console.log(data);
   };
   const history = useHistory();
 

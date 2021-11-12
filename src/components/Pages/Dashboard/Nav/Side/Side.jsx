@@ -40,9 +40,6 @@ const Side = () => {
     />
   );
 
-  console.log(user, admin);
-  console.log(user?.displayName);
-
   return (
     <div>
       <div className="flex items-center justify-between px-10 h-14 bg-white shadow-sm">

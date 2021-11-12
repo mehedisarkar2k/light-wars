@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import About from "../Home/About/About";
 import Reviews from "../Home/Reviews/Reviews";
@@ -26,6 +27,7 @@ const AboutUs = () => {
       </About>
 
       <Reviews />
+      <Footer />
     </div>
   );
 };

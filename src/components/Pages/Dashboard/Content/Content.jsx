@@ -14,7 +14,6 @@ import UserProfile from "../UserProfile/UserProfile";
 
 const Content = ({ path }) => {
   const { admin } = useAuth();
-  console.log(!(admin?.role === "admin"));
 
   return (
     <div className="ml-0 md:ml-60 px-10 bg-teal-50">

@@ -11,6 +11,8 @@ import NotFound from "./components/Pages/NotFound/NotFound";
 import PlaceOrder from "./components/Pages/PlaceOrder/PlaceOrder";
 import AuthProvider from "./context/AuthProvider";
 
+// AOS.init();
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen font-poppins">

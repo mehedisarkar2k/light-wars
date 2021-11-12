@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
@@ -21,6 +22,7 @@ const Home = () => {
       <Products />
 
       <Reviews />
+      <Footer />
     </>
   );
 };

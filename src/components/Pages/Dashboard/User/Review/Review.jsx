@@ -40,7 +40,6 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (1) {
           Swal.fire({
             position: "top-end",

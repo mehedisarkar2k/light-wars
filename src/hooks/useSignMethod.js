@@ -13,7 +13,7 @@ const useSignMethod = () => {
   } = useAuth();
 
   const location = useLocation();
-  const redirect_uri = location.state?.from || "/home";
+  const redirect_uri = location.state?.from || "/dashboard";
   const history = useHistory();
 
   const handleGoogleSignIn = () => {
@@ -45,6 +45,15 @@ const useSignMethod = () => {
           });
       })
       .catch((error) => {
+        Swal.fire({
+          title: error.message,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         setIsLoading(false);
       })
       .finally(() => {
@@ -72,6 +81,15 @@ const useSignMethod = () => {
         // history.push(redirect_uri);
       })
       .catch((error) => {
+        Swal.fire({
+          title: error.message,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         setIsLoading(false);
       })
       .finally(() => {
@@ -86,7 +104,6 @@ const useSignMethod = () => {
   const handleNewUserWithEmail = (email, password, fullName) => {
     createUserWithEmail(email, password)
       .then((result) => {
-        console.log(auth.currentUser);
         auth.currentUser.displayName = fullName;
 
         fetch(`https://light-wars.herokuapp.com/users`, {
