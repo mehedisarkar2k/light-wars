@@ -11,6 +11,7 @@ const AboutUsBanner = () => {
     >
       <div className="my-container">
         <div
+          data-aos="zoom-in"
           style={{ minHeight: "60vh" }}
           className="flex items-center justify-center"
         >

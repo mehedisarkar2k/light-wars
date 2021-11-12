@@ -22,7 +22,12 @@ const Footer = () => {
     <footer className="bg-gray-700 text-white py-10 w-full">
       <div className="my-container">
         <div className="grid space-y-4 space-x-4 grid-cols-1 md:grid-cols-3">
-          <div className="space-y-2">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            className="space-y-2"
+          >
             <h2 className="text-white text-3xl font-bold font-grandHotel tracking-widest">
               <span className="text-teal-600">Light </span>Ware
             </h2>
@@ -38,7 +43,13 @@ const Footer = () => {
               <BsLinkedin className="transition text-xl cursor-pointer hover:text-orange" />
             </div>
           </div>
-          <div className="flex md:justify-center">
+
+          <div
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            className="flex md:justify-center"
+          >
             <div className="">
               <h3 className="text-3xl mb-2">Quick Links</h3>
               <div className="flex flex-col list-none">
@@ -75,7 +86,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="">
+          <div
+            data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="500"
+            className=""
+          >
             <h3 className="text-3xl mb-2">Newsletter</h3>
             <p>
               Join us on a Villa Park Stadium Tour and Step behind the scenes.
@@ -95,7 +112,8 @@ const Footer = () => {
           </div>
         </div>
         <hr className="my-6" />
-        <div className="flex items-center justify-between">
+
+        <div data-aos="flip-left" className="flex items-center justify-between">
           <p className="text-gray-200 text-sm">
             &copy;2021-2022{" "}
             <span className="text-white text-sm font-bold">

@@ -33,6 +33,9 @@ const MyOrder = () => {
       }
     });
   };
+  useEffect(() => {
+    document.title = "My Orders | Lightwars";
+  }, []);
 
   useEffect(() => {
     fetch(`https://light-wars.herokuapp.com/orders?email=${user.email}`)

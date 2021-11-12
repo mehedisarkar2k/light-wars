@@ -8,6 +8,10 @@ const Admins = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    document.title = "Make Admin | Lightwars";
+  }, []);
+
+  useEffect(() => {
     fetch("https://light-wars.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));

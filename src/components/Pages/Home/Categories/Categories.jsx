@@ -6,7 +6,10 @@ import woman from "../../../../images/woman.png";
 const Categories = () => {
   return (
     <div className="md:-mt-48 my-container grid grid-cols-1 gap-8 md:grid-cols-3">
-      <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5">
+      <div
+        data-aos="zoom-in-down"
+        className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
+      >
         <div className="h-80 overflow-hidden">
           <img
             className="w-full object-cover"
@@ -21,7 +24,10 @@ const Categories = () => {
           <p className="text-gray-700 text-base"></p>
         </div>
       </div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5">
+      <div
+        data-aos="flip-right"
+        className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
+      >
         <div className="h-80 overflow-hidden">
           <img className="w-full" src={woman} alt="Sunset in the mountains" />
         </div>
@@ -32,7 +38,10 @@ const Categories = () => {
           <p className="text-gray-700 text-base"></p>
         </div>
       </div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5">
+      <div
+        data-aos="zoom-in-down"
+        className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition hover:-translate-y-5"
+      >
         <div className="h-80 overflow-hidden">
           <img className="w-full" src={baby} alt="Sunset in the mountains" />
         </div>

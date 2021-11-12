@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import p404 from "../../../images/404.png";
 
 const NotFound = () => {
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = "404 | Lightwars";
+  }, []);
+
   return (
     <div className="bg-gray-50">
       <div className="my-container">

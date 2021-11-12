@@ -9,6 +9,10 @@ const OrderList = () => {
   const { user } = useAuth();
   const [isDelete, setIsDelete] = useState(null);
 
+  useEffect(() => {
+    document.title = "Order List | Lightwars";
+  }, []);
+
   const deleteOrder = (id) => {
     Swal.fire({
       title: "Are you sure?",

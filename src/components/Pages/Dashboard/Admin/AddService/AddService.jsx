@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Swal from "sweetalert2";
 import { List, ListItem, Range } from "tailwind-mobile/react";
@@ -10,6 +10,10 @@ const AddService = () => {
     img: "https://i.ibb.co/zHVPbpp/19-300x300.jpg",
     img2: "https://i.ibb.co/5FYfYXr/19-19-300x300.jpg",
   });
+
+  useEffect(() => {
+    document.title = "Add Service | Lightwars";
+  }, []);
 
   const handleOnBlur = (e) => {
     const product = { ...newProduct };

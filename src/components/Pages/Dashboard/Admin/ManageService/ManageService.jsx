@@ -9,6 +9,10 @@ const ManageService = () => {
   const [isDelete, setIsDelete] = useState(null);
   const history = useHistory();
 
+  useEffect(() => {
+    document.title = "Manage Service | Lightwars";
+  }, []);
+
   const deleteService = (id) => {
     Swal.fire({
       title: "Are you sure?",

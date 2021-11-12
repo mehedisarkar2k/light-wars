@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Swal from "sweetalert2";
 import { List, ListItem, Range } from "tailwind-mobile/react";
@@ -14,6 +14,10 @@ const Review = () => {
     message: "",
     img: "",
   });
+
+  useEffect(() => {
+    document.title = "Add Review| Lightwars";
+  }, []);
 
   const history = useHistory();
 

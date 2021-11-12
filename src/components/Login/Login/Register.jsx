@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { GrClose } from "react-icons/gr";
 import { Link, useHistory } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
 import useSignMethod from "../../../hooks/useSignMethod";
 
 const Register = () => {
@@ -14,10 +15,17 @@ const Register = () => {
     handleNewUserWithEmail(data.email, data.password, fullName);
   };
 
+  useEffect(() => {
+    document.title = "Register | Lightwars";
+  }, []);
+
   return (
     <div className="bg-teal-50">
       <div className="flex items-center justify-center min-h-screen">
-        <div className="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden py-10 px-20 bg bg-white relative z-2">
+        <div
+          data-aos="zoom-in"
+          className="max-w-lg mx-auto rounded-lg shadow-xl overflow-hidden py-10 px-20 bg bg-white relative z-2"
+        >
           <div
             onClick={() => history.push("/")}
             className="absolute top-2 left-0 btn px-4 animate-bounce "

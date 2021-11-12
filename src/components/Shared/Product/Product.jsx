@@ -10,7 +10,11 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div className="overflow-hidden group border rounded-xl shadow-lg">
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      className="overflow-hidden group border rounded-xl shadow-lg"
+    >
       <div className="h-40 md:h-72 lg:h-56 relative">
         <img
           className="md:absolute -top-14 left-0 w-full h-full object-cover transition-all duration-500 group-hover:hidden block"

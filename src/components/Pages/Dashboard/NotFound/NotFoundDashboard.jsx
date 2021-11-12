@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import p404 from "../../../../images/404.png";
 
 const NotFoundDashboard = () => {
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = "404 | Lightwars";
+  }, []);
+
   return (
     <div className="py-20">
       <div className="w-full md:2/3 lg:w-1/2 mx-auto">

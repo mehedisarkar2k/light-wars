@@ -8,6 +8,7 @@ const Explore = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    document.title = "Explore | Lightwars";
     fetch("https://light-wars.herokuapp.com/glasses")
       .then((res) => res.json())
       .then((data) => setProducts(data));

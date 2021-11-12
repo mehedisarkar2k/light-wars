@@ -13,13 +13,13 @@ const Banner = () => {
       <div className="my-container">
         <div className="min-h-screen flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="text-white text-left">
+            <div data-aos="zoom-in" className="text-white text-left">
               <p className="mb-4 text-lg uppercase tracking-wider">
                 Select your frame from the collection of
               </p>
               <h2 className="font-grandHotel text-9xl">Style</h2>
 
-              <button className="flex items-center justify-center space-x-2 btn btn-danger mt-8 bg-red-600 hover:bg-red-500">
+              <button className="flex items-center justify-center space-x-2 btn btn-danger mt-8 bg-teal-600 hover:bg-teal-500">
                 <span>Explore</span>
                 <BiArrowFromLeft size="1.5em" />
               </button>

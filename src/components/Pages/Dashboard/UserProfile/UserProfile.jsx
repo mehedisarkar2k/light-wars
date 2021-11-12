@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import userImg from "../../../../images/review_user.webp";
 
 const UserProfile = () => {
+  useEffect(() => {
+    document.title = "My Profile | Lightwars";
+  }, []);
+
   const { user, admin } = useAuth();
   return (
     <div className=" flex min-h-screen items-center justify-center">

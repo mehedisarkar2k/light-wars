@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react/cjs/react.development";
 import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import About from "./About/About";
@@ -8,6 +9,9 @@ import Products from "./Products/Products";
 import Reviews from "./Reviews/Reviews";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home | Lightwars";
+  }, []);
   return (
     <>
       <Nav />
