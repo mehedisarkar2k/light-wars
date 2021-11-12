@@ -1,5 +1,6 @@
 import { getAuth } from "@firebase/auth";
 import { useHistory, useLocation } from "react-router";
+import Swal from "sweetalert2";
 import useAuth from "./useAuth";
 
 const useSignMethod = () => {
@@ -31,7 +32,17 @@ const useSignMethod = () => {
           }),
         })
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => {
+            Swal.fire({
+              title: "Sign In successfully",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          });
       })
       .catch((error) => {
         setIsLoading(false);
@@ -49,6 +60,15 @@ const useSignMethod = () => {
     setIsLoading(true);
     emailPassSignIn(email, password)
       .then(() => {
+        Swal.fire({
+          title: "Sign In successfully",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         // history.push(redirect_uri);
       })
       .catch((error) => {
@@ -77,7 +97,17 @@ const useSignMethod = () => {
           body: JSON.stringify({ name: fullName, email: email }),
         })
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => {
+            Swal.fire({
+              title: "Your account has been created and you are logged in!",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          });
       })
       .catch((error) => {
         setIsLoading(false);

@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import initializeFirebase from "../components/Login/Firebase/Firebase.init";
 
 initializeFirebase();
@@ -47,13 +48,33 @@ const useFirebase = () => {
   };
 
   const signOutUser = () => {
-    setIsLoading(true);
-    signOut(auth)
-      .then(() => {
-        setUser({});
-      })
-      .then(() => setIsLoading(false))
-      .then(() => setMessage("You have successfully logged out."));
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, Logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "You have successfully logged out!",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        setIsLoading(true);
+        signOut(auth)
+          .then(() => {
+            setUser({});
+          })
+          .then(() => setIsLoading(false))
+          .then(() => setMessage("You have successfully logged out."));
+      }
+    });
   };
 
   useEffect(() => {

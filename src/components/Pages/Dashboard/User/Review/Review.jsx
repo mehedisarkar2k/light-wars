@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import { List, ListItem, Range } from "tailwind-mobile/react";
 import useAuth from "../../../../../hooks/useAuth";
 
@@ -12,6 +14,8 @@ const Review = () => {
     message: "",
     img: "",
   });
+
+  const history = useHistory();
 
   const onChangeHandler = (e) => {
     const filed = e.target.name;
@@ -35,7 +39,19 @@ const Review = () => {
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
-      .then((data) => {});
+      .then((data) => {
+        console.log(data);
+        if (1) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Thanks for review us 💌 ",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          history.push("/");
+        }
+      });
   };
 
   return (

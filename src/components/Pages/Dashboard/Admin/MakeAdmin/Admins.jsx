@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import Spinner from "../../../../Shared/Loader/Spinner";
 import SingleAdmin from "./SingleAdmin";
 
@@ -13,25 +14,47 @@ const Admins = () => {
   }, [isUpdate]);
 
   const makeAdmin = (user) => {
-    fetch(`https://light-wars.herokuapp.com/users`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name: user.name,
-        email: user.email,
-        role: "admin",
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          setIsUpdate(!isUpdate);
-        } else {
-          setIsUpdate(false);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make admin!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Successfully created new admin!",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+
+        fetch(`https://light-wars.herokuapp.com/users`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name: user.name,
+            email: user.email,
+            role: "admin",
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              setIsUpdate(!isUpdate);
+            } else {
+              setIsUpdate(false);
+            }
+          });
+      }
+    });
   };
 
   if (users.length === 0)

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import useAuth from "../../../../../hooks/useAuth";
 import Spinner from "../../../../Shared/Loader/Spinner";
 
@@ -8,17 +9,29 @@ const MyOrder = () => {
   const [isDelete, setIsDelete] = useState(null);
 
   const deleteOrder = (id) => {
-    fetch(`https://light-wars.herokuapp.com/order/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          setIsDelete(!isDelete);
-        } else {
-          setIsDelete(false);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://light-wars.herokuapp.com/order/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              setIsDelete(!isDelete);
+            } else {
+              setIsDelete(false);
+            }
+          });
+      }
+    });
   };
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import useAuth from "../../../../../hooks/useAuth";
 import Spinner from "../../../../Shared/Loader/Spinner";
 import SingleOrder from "./SingleOrder";
@@ -9,17 +10,37 @@ const OrderList = () => {
   const [isDelete, setIsDelete] = useState(null);
 
   const deleteOrder = (id) => {
-    fetch(`https://light-wars.herokuapp.com/order/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          setIsDelete(!isDelete);
-        } else {
-          setIsDelete(false);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, Delete!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Successfully added new service",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        fetch(`https://light-wars.herokuapp.com/order/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              setIsDelete(!isDelete);
+            } else {
+              setIsDelete(false);
+            }
+          });
+      }
+    });
   };
 
   const approveProduct = (order) => {
@@ -28,22 +49,41 @@ const OrderList = () => {
     console.log(order, updateOrder);
 
     if (orders.length !== 0) {
-      console.log("in condition");
-      fetch(`https://light-wars.herokuapp.com/order?id=${order._id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateOrder),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount) {
-            setIsDelete(!isDelete);
-          } else {
-            setIsDelete(false);
-          }
-        });
+      Swal.fire({
+        title: "Are you sure?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Approve!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Successfully added new service",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+          fetch(`https://light-wars.herokuapp.com/order?id=${order._id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updateOrder),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.modifiedCount) {
+                setIsDelete(!isDelete);
+              } else {
+                setIsDelete(false);
+              }
+            });
+        }
+      });
     }
   };
 

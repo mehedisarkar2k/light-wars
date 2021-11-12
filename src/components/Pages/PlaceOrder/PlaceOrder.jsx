@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import Nav from "../../Shared/Nav/Nav";
 import ExploreBanner from "../Explore/Banner/ExploreBanner";
@@ -8,6 +9,7 @@ const PlaceOrder = () => {
   const [product, setProduct] = useState({});
   const { user } = useAuth();
   const { id } = useParams();
+  const history = useHistory();
   const [orderData, setOrderData] = useState({
     name: user?.displayName || user?.email?.split("@")[0],
     email: user?.email,
@@ -39,12 +41,23 @@ const PlaceOrder = () => {
       product: { ...product },
     };
 
-    fetch("https://light-wars.herokuapp.com/order", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(finalData),
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes place Order!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://light-wars.herokuapp.com/order", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(finalData),
+        }).then(history.push("/dashboard"));
+      }
     });
   };
 

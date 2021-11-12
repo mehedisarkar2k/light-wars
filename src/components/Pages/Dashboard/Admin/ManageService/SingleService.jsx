@@ -1,6 +1,6 @@
 import React from "react";
 
-const SingleService = ({ service, deleteOrder }) => {
+const SingleService = ({ service, deleteService }) => {
   const { name, descriptions, price, img } = service;
 
   return (
@@ -21,7 +21,7 @@ const SingleService = ({ service, deleteOrder }) => {
 
       <div className="flex items-center justify-center mt-3">
         <button
-          onClick={() => deleteOrder(service._id)}
+          onClick={() => deleteService(service._id)}
           className="btn btn-danger px-3 py-1 text-lg bg-red-300 hover:bg-red-200 text-gray-800"
         >
           Delete Item

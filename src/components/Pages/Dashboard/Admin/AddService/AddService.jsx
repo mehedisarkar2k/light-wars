@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import { List, ListItem, Range } from "tailwind-mobile/react";
 
 const AddService = () => {
+  const history = useHistory();
   const [price, setPrice] = useState(150);
   const [newProduct, setNewProduct] = useState({
     img: "https://i.ibb.co/zHVPbpp/19-300x300.jpg",
@@ -17,13 +20,35 @@ const AddService = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Add new item!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Successfully added new service",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
 
-    fetch("https://light-wars.herokuapp.com/glasses", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
+        history.push("/dashboard");
+
+        fetch("https://light-wars.herokuapp.com/glasses", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newProduct),
+        });
+      }
     });
   };
 
@@ -152,7 +177,7 @@ const AddService = () => {
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
             >
-              Add Item
+              Add Service
             </button>
           </div>
         </form>
