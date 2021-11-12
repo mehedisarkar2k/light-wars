@@ -21,6 +21,29 @@ const OrderList = () => {
       });
   };
 
+  const approveProduct = (order) => {
+    const updateOrder = { ...order.order };
+    updateOrder.status = "approved";
+
+    console.log(updateOrder);
+
+    fetch(`http://localhost:5000/order?id=${order._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateOrder),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setIsDelete(!isDelete);
+        } else {
+          setIsDelete(false);
+        }
+      });
+  };
+
   useEffect(() => {
     fetch(`http://localhost:5000/orders`)
       .then((res) => res.json())
@@ -46,6 +69,7 @@ const OrderList = () => {
                 key={order._id}
                 order={order}
                 deleteOrder={deleteOrder}
+                approveProduct={approveProduct}
               />
             ))}
           </table>

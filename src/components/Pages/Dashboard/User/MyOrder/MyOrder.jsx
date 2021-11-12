@@ -32,7 +32,13 @@ const MyOrder = () => {
         <div key={myOrder._id} className="rounded-md p-4 bg-white">
           <div className="flex items-center justify-between">
             <img className="w-1/4" src={myOrder.product.img} alt="" />
-            <h4 className="text-sm px-3 py-1 rounded-full bg-red-100 text-gray-800">
+            <h4
+              className={`text-sm px-3 py-1 rounded-full ${
+                myOrder.order.status === "pending"
+                  ? "bg-red-200"
+                  : "bg-green-100"
+              } text-gray-800`}
+            >
               {myOrder.order.status}
             </h4>
           </div>
