@@ -29,9 +29,9 @@ function App() {
               <Explore />
             </Route>
 
-            <Route path="/placeOrder/:id">
+            <PrivateRoute path="/placeOrder/:id">
               <PlaceOrder />
-            </Route>
+            </PrivateRoute>
 
             <PrivateRoute path="/dashboard">
               <Dashboard />

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../../../hooks/useAuth";
+import Spinner from "../../../../Shared/Loader/Spinner";
 import SingleOrder from "./SingleOrder";
 
 const OrderList = () => {
-  const [orders, setOrders] = useState();
+  const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   const [isDelete, setIsDelete] = useState(null);
 
   const deleteOrder = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://light-wars.herokuapp.com/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -24,31 +25,45 @@ const OrderList = () => {
   const approveProduct = (order) => {
     const updateOrder = { ...order.order };
     updateOrder.status = "approved";
+    console.log(order, updateOrder);
 
-    console.log(updateOrder);
-
-    fetch(`http://localhost:5000/order?id=${order._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateOrder),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          setIsDelete(!isDelete);
-        } else {
-          setIsDelete(false);
-        }
-      });
+    if (orders.length !== 0) {
+      console.log("in condition");
+      fetch(`https://light-wars.herokuapp.com/order?id=${order._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateOrder),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount) {
+            setIsDelete(!isDelete);
+          } else {
+            setIsDelete(false);
+          }
+        });
+    }
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://light-wars.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user.email, isDelete]);
+
+  if (orders.length === 0)
+    return (
+      <h1 className="text-red-500 text-center py-20 text-3xl">
+        No Order Found!
+      </h1>
+    );
+
+  if (orders.length < 1) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg py-6">

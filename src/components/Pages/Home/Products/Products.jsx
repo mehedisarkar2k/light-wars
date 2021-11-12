@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Spinner from "../../../Shared/Loader/Spinner";
 import Product from "../../../Shared/Product/Product";
 
 const Products = () => {
@@ -9,6 +10,10 @@ const Products = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  if (products.length < 1) {
+    return <Spinner />;
+  }
 
   return (
     <div className="py-20">

@@ -20,8 +20,7 @@ const useSignMethod = () => {
     googleSignIn()
       .then((result) => {
         // history.push(redirect_uri);
-        console.log(result);
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://light-wars.herokuapp.com/users`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -32,9 +31,7 @@ const useSignMethod = () => {
           }),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
+          .then((data) => {});
       })
       .catch((error) => {
         setIsLoading(false);
@@ -71,7 +68,7 @@ const useSignMethod = () => {
       .then((result) => {
         auth.currentUser.displayName = fullName;
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://light-wars.herokuapp.com/users`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -79,9 +76,7 @@ const useSignMethod = () => {
           body: JSON.stringify({ name: fullName, email: email }),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
+          .then((data) => {});
       })
       .catch((error) => {
         setIsLoading(false);

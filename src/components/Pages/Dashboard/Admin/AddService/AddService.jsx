@@ -18,15 +18,13 @@ const AddService = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/glasses", {
+    fetch("https://light-wars.herokuapp.com/glasses", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(newProduct),
     });
-
-    console.log(newProduct);
   };
 
   return (

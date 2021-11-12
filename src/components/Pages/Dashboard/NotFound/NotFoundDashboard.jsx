@@ -5,7 +5,7 @@ import p404 from "../../../../images/404.png";
 const NotFoundDashboard = () => {
   const history = useHistory();
   return (
-    <div>
+    <div className="py-20">
       <div className="w-full md:2/3 lg:w-1/2 mx-auto">
         <h2 className="text-center text-red-500 text-3xl">
           Ops! Page not found. Go back and try again!

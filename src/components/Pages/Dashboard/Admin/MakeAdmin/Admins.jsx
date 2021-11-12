@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Spinner from "../../../../Shared/Loader/Spinner";
 import SingleAdmin from "./SingleAdmin";
 
 const Admins = () => {
@@ -6,13 +7,13 @@ const Admins = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://light-wars.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [isUpdate]);
 
   const makeAdmin = (user) => {
-    fetch(`http://localhost:5000/users`, {
+    fetch(`https://light-wars.herokuapp.com/users`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -32,6 +33,15 @@ const Admins = () => {
         }
       });
   };
+
+  if (users.length === 0)
+    return (
+      <h1 className="text-red-500 text-center py-20 text-3xl">
+        No User Found!
+      </h1>
+    );
+
+  if (users.length < 1) return <Spinner />;
 
   return (
     <div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Spinner from "../../../../Shared/Loader/Spinner";
 import SingleService from "./SingleService";
 
 const ManageService = () => {
@@ -6,8 +7,7 @@ const ManageService = () => {
   const [isDelete, setIsDelete] = useState(null);
 
   const deleteOrder = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/glasses/${id}`, {
+    fetch(`https://light-wars.herokuapp.com/glasses/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -25,6 +25,8 @@ const ManageService = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [isDelete]);
+
+  if (services.length < 1) return <Spinner />;
 
   return (
     <div className="grid grid-cols-3 gap-4">

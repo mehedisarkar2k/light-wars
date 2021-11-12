@@ -27,7 +27,7 @@ const Review = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://light-wars.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,9 +35,7 @@ const Review = () => {
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((data) => {});
   };
 
   return (

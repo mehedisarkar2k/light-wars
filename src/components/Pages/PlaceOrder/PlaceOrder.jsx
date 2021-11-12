@@ -16,7 +16,7 @@ const PlaceOrder = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/glass/${id}`)
+    fetch(`https://light-wars.herokuapp.com/glass/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
@@ -39,7 +39,7 @@ const PlaceOrder = () => {
       product: { ...product },
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://light-wars.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

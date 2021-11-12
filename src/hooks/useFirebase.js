@@ -20,6 +20,7 @@ const useFirebase = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState();
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -68,12 +69,19 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
 
+  useEffect(() => {
+    fetch(`https://light-wars.herokuapp.com/user/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data));
+  }, [user.email]);
+
   return {
     user,
     message,
     isLoading,
     name,
     auth,
+    admin,
     googleSignIn,
     githubSignIn,
     emailPassSignIn,

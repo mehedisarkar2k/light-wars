@@ -22,7 +22,9 @@ const Side = () => {
   const history = useHistory();
   const [menuSHow, setMenuShow] = useState(false);
   let { path, url } = useRouteMatch();
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
+
+  console.log(admin);
 
   const { signOutUser } = useFirebase();
 
@@ -58,8 +60,10 @@ const Side = () => {
           />
           <div>
             <h2 className="text-lg text-gray-800 font-bold">
-              {user?.email}{" "}
-              <span className="text-base font-normal">(admin)</span>
+              {user?.displayName.split(" ")[0]}{" "}
+              <span className="text-base font-normal italic text-teal-600">
+                ({admin?.role || "user"})
+              </span>
             </h2>
           </div>
         </div>
@@ -74,80 +78,88 @@ const Side = () => {
       >
         <div className="divide-y divide-gray-300">
           <ul className="pt-2 pb-4 space-y-1 text-sm">
-            <li>
-              <NavLink
-                to={`${url}/my-order`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <CgShoppingCart />
-                <span>My Orders</span>
-              </NavLink>
-            </li>
+            {!(admin?.role === "admin") && (
+              <>
+                <li>
+                  <NavLink
+                    to={`${url}/my-order`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <CgShoppingCart />
+                    <span>My Orders</span>
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                to={`${url}/payment`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <AiOutlineWallet />
-                <span>Payment</span>
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to={`${url}/payment`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <AiOutlineWallet />
+                    <span>Payment</span>
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                to={`${url}/review`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <BiMessageRoundedDots />
-                <span>Review</span>
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to={`${url}/review`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <BiMessageRoundedDots />
+                    <span>Review</span>
+                  </NavLink>
+                </li>
+              </>
+            )}
 
-            <li>
-              <NavLink
-                to={`${url}/order-list`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <FaClipboardList />
-                <span>Order List</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={`${url}/add-service`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <GrAdd />
-                <span>Add Service</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={`${url}/make-admin`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <AiOutlineUserAdd />
+            {admin?.role === "admin" && (
+              <>
+                <li>
+                  <NavLink
+                    to={`${url}/order-list`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <FaClipboardList />
+                    <span>Order List</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={`${url}/add-service`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <GrAdd />
+                    <span>Add Service</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={`${url}/make-admin`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <AiOutlineUserAdd />
 
-                <span>Make Admin</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={`${url}/manage-service`}
-                className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
-                activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
-              >
-                <GrServices />
-                <span>Manage Service</span>
-              </NavLink>
-            </li>
+                    <span>Make Admin</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={`${url}/manage-service`}
+                    className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
+                    activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
+                  >
+                    <GrServices />
+                    <span>Manage Service</span>
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
 
           <ul className="pt-4 pb-2 space-y-1 text-sm">
