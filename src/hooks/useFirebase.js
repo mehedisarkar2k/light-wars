@@ -36,7 +36,7 @@ const useFirebase = () => {
     return signInWithPopup(auth, githubProvider);
   };
 
-  const emailPassSignIn = () => {
+  const emailPassSignIn = (email, password) => {
     setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -82,6 +82,8 @@ const useFirebase = () => {
     name,
     auth,
     admin,
+    email,
+    password,
     googleSignIn,
     githubSignIn,
     emailPassSignIn,

@@ -1,13 +1,18 @@
 import React from "react";
 import useAuth from "../../../../hooks/useAuth";
+import userImg from "../../../../images/review_user.webp";
 
 const UserProfile = () => {
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
   return (
     <div className=" flex min-h-screen items-center justify-center">
       <div className="-mt-32 text-center flex-col flex items-center justify-center space-y-4">
-        <img className="h-20 w-20 rounded-full" src={user?.photoURL} alt="" />
-        <h2 className="text-3xl">Hello, {user?.displayName}</h2>
+        <img
+          className="h-20 w-20 rounded-full"
+          src={user?.photoURL || userImg}
+          alt=""
+        />
+        <h2 className="text-3xl">Hello, {user?.displayName || admin?.name}</h2>
       </div>
     </div>
   );

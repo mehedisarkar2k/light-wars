@@ -45,9 +45,9 @@ const useSignMethod = () => {
       });
   };
 
-  const handleEmailPassSignIn = () => {
+  const handleEmailPassSignIn = (email, password) => {
     setIsLoading(true);
-    emailPassSignIn()
+    emailPassSignIn(email, password)
       .then(() => {
         // history.push(redirect_uri);
       })
@@ -66,6 +66,7 @@ const useSignMethod = () => {
   const handleNewUserWithEmail = (email, password, fullName) => {
     createUserWithEmail(email, password)
       .then((result) => {
+        console.log(auth.currentUser);
         auth.currentUser.displayName = fullName;
 
         fetch(`https://light-wars.herokuapp.com/users`, {

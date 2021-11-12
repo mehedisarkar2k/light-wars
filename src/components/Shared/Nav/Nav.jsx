@@ -9,7 +9,7 @@ import Spinner from "../Loader/Spinner";
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [windowHeight, setWindowHeight] = useState(false);
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
   const { isLoading, signOutUser } = useFirebase();
 
   useEffect(() => {
@@ -86,7 +86,10 @@ function Nav() {
                     >
                       Logout{" "}
                       <span className="text-sm">
-                        ({user?.displayName?.split(" ")[0]})
+                        (
+                        {user?.displayName?.split(" ")[0] ||
+                          admin?.name.split(" ")[0]}
+                        )
                       </span>
                     </button>
                   ) : (
@@ -202,7 +205,10 @@ function Nav() {
                   >
                     Logout{" "}
                     <span className="text-sm">
-                      ({user?.displayName?.split(" ")[0]})
+                      (
+                      {user?.displayName?.split(" ")[0] ||
+                        admin?.name.split(" ")[0]}
+                      )
                     </span>
                   </button>
                 ) : (

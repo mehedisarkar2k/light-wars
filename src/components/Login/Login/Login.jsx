@@ -5,10 +5,14 @@ import { Link, useHistory } from "react-router-dom";
 import useSignMethod from "../../../hooks/useSignMethod";
 
 const Login = () => {
+  const { handleGoogleSignIn, handleEmailPassSignIn } = useSignMethod();
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    handleEmailPassSignIn(data.email, data.password);
+    console.log(data);
+  };
   const history = useHistory();
-  const { handleGoogleSignIn } = useSignMethod();
 
   return (
     <div className="bg-teal-50 ">

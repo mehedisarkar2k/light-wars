@@ -24,8 +24,6 @@ const Side = () => {
   let { path, url } = useRouteMatch();
   const { user, admin } = useAuth();
 
-  console.log(admin);
-
   const { signOutUser } = useFirebase();
 
   const menuBar = menuSHow ? (
@@ -41,6 +39,9 @@ const Side = () => {
       className="text-green-700 cursor-pointer"
     />
   );
+
+  console.log(user, admin);
+  console.log(user?.displayName);
 
   return (
     <div>
@@ -60,7 +61,7 @@ const Side = () => {
           />
           <div>
             <h2 className="text-lg text-gray-800 font-bold">
-              {user?.displayName.split(" ")[0]}{" "}
+              {user?.displayName?.split(" ")[0] || admin?.name}{" "}
               <span className="text-base font-normal italic text-teal-600">
                 ({admin?.role || "user"})
               </span>
