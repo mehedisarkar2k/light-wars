@@ -1,7 +1,7 @@
 import React from "react";
 import BannerBg from "../../../../images/exploreBanner.jpg";
 
-const ExploreBanner = () => {
+const ExploreBanner = ({ children }) => {
   return (
     <div
       style={{
@@ -14,11 +14,15 @@ const ExploreBanner = () => {
           style={{ minHeight: "60vh" }}
           className="flex items-center justify-center"
         >
-          <div className="text-white text-left flex items-center justify-center flex-col">
-            <p className="text-5xl uppercase tracking-widest font-grandHotel text-emerald-500">
-              Explore Your Glasses
-            </p>
-          </div>
+          {children ? (
+            children
+          ) : (
+            <div className="text-white text-left flex items-center justify-center flex-col">
+              <p className="text-5xl uppercase tracking-widest font-grandHotel text-emerald-500">
+                Explore Your Glasses
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

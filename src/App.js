@@ -8,6 +8,7 @@ import Dashboard from "./components/Pages/Dashboard/Dashboard";
 import Explore from "./components/Pages/Explore/Explore";
 import Home from "./components/Pages/Home/Home";
 import NotFound from "./components/Pages/NotFound/NotFound";
+import PlaceOrder from "./components/Pages/PlaceOrder/PlaceOrder";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
 
             <Route path="/explore">
               <Explore />
+            </Route>
+
+            <Route path="/placeOrder/:id">
+              <PlaceOrder />
             </Route>
 
             <PrivateRoute path="/dashboard">

@@ -1,8 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router";
 import Ratings from "../Ratings/Ratings";
 
 const Product = ({ product }) => {
-  const { name, price, img, img2, ratings } = product;
+  const { _id, name, price, img, img2, ratings } = product;
+  const history = useHistory();
+  const buyNow = (id) => {
+    history.push(`/placeOrder/${id}`);
+  };
 
   return (
     <div className="overflow-hidden group border rounded-xl shadow-lg">
@@ -23,7 +28,12 @@ const Product = ({ product }) => {
         <h2 className="text-xl text-teal-600">{name}le</h2>
         <Ratings ratings={ratings} />
         <p className="font-bold tracking-wider text-teal-600">${price}</p>
-        <button className="btn btn-primary py-1 px-3">Buy Now</button>
+        <button
+          onClick={() => buyNow(_id)}
+          className="btn btn-primary py-1 px-3"
+        >
+          Buy Now
+        </button>
       </div>
     </div>
   );
