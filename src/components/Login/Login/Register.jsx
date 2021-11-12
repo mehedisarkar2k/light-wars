@@ -12,7 +12,6 @@ const Register = () => {
   const onSubmit = async (data) => {
     const fullName = data.fName + " " + data.lName;
     handleNewUserWithEmail(data.email, data.password, fullName);
-    console.log(data);
   };
 
   return (

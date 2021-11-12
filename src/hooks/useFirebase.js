@@ -42,7 +42,6 @@ const useFirebase = () => {
 
   const createUserWithEmail = (email, password) => {
     setIsLoading(true);
-    console.log(email, password);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -74,6 +73,7 @@ const useFirebase = () => {
     message,
     isLoading,
     name,
+    auth,
     googleSignIn,
     githubSignIn,
     emailPassSignIn,

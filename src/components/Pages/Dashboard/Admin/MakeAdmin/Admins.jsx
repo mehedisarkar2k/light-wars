@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SingleAdmin from "./SingleAdmin";
 
 const Admins = () => {
+  const [isUpdate, setIsUpdate] = useState(null);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [isUpdate]);
+
+  const makeAdmin = (user) => {
+    fetch(`http://localhost:5000/users`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email,
+        role: "admin",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setIsUpdate(!isUpdate);
+        } else {
+          setIsUpdate(false);
+        }
+      });
+  };
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg py-6">
@@ -17,8 +48,8 @@ const Admins = () => {
               </tr>
             </thead>
 
-            {[...Array(5)].map((_, i) => (
-              <SingleAdmin key={i} />
+            {users?.map((user) => (
+              <SingleAdmin key={user._id} user={user} makeAdmin={makeAdmin} />
             ))}
           </table>
         </div>

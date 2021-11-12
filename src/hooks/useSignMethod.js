@@ -3,8 +3,13 @@ import { useHistory, useLocation } from "react-router";
 import useAuth from "./useAuth";
 
 const useSignMethod = () => {
-  const { googleSignIn, emailPassSignIn, createUserWithEmail, setIsLoading } =
-    useAuth();
+  const {
+    auth,
+    googleSignIn,
+    emailPassSignIn,
+    createUserWithEmail,
+    setIsLoading,
+  } = useAuth();
 
   const location = useLocation();
   const redirect_uri = location.state?.from || "/home";
@@ -13,8 +18,23 @@ const useSignMethod = () => {
   const handleGoogleSignIn = () => {
     setIsLoading(true);
     googleSignIn()
-      .then(() => {
+      .then((result) => {
         // history.push(redirect_uri);
+        console.log(result);
+        fetch(`http://localhost:5000/users`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name: result.user.displayName,
+            email: result.user.email,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         setIsLoading(false);
@@ -27,25 +47,6 @@ const useSignMethod = () => {
           : history.push(location.state?.from);
       });
   };
-
-  // const handleGithubSignIn = () => {
-  //   setIsLoading(true);
-  //   githubSignIn()
-  //     .then(() => {
-  //       // history.push(redirect_uri);
-  //     })
-  //     .catch((error) => {
-  //       setIsLoading(false);
-  //       setMessage(error.message);
-  //     })
-  //     .finally(() => {
-  //       const user = getAuth().currentUser;
-  //       setIsLoading(false);
-  //       user?.email
-  //         ? history.push(redirect_uri)
-  //         : history.push(location.state?.from);
-  //     });
-  // };
 
   const handleEmailPassSignIn = () => {
     setIsLoading(true);
@@ -66,10 +67,21 @@ const useSignMethod = () => {
   };
 
   const handleNewUserWithEmail = (email, password, fullName) => {
-    console.log(fullName);
     createUserWithEmail(email, password)
       .then((result) => {
-        // updateUser();
+        auth.currentUser.displayName = fullName;
+
+        fetch(`http://localhost:5000/users`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ name: fullName, email: email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         setIsLoading(false);
