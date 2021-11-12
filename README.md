@@ -1,64 +1,43 @@
-# Getting Started with Basic React Project Startup
+# niche-website-client-side-mehedisarkar2k
 
-## This template will install instantly
+## Hello welcome to [Light Wars](https://lightwars-mhs.web.app/).
 
-- Facebook react project
-- Tailwind css
-- React-router-dom
-- React-icons
+## Table of Contents
 
-## To run this project
+- [Live Server](#live-server)
+- [How to run](#how-to-run)
+- [About Project](#about-project)
 
-1. Clone the repository
+## Live Server
 
-```sh
-git clone git@github.com:mehedisarkar2k/react-startup.git
-```
+https://lightwars-mhs.web.app/
 
-or
+## How to run
 
-```sh
-git clone https://github.com/mehedisarkar2k/react-startup.git
-```
+1. Clone this repository
+   ```sh
+   git clone https://github.com/programming-hero-web-course-4/niche-website-client-side-mehedisarkar2k
+   ```
+2. Run
+   ```sh
+   yarn
+   ```
+3. Then run to see project in live server
+   ```sh
+   yarn start
+   ```
+4. This app should be available in http://localhost:3000/
 
-2. To install the project
+## About Project
 
-- go to the folder
-
-```sh
-cd react-startup
-```
-
-- Install the packages
-
-```sh
-yarn
-```
-
-or
-
-```sh
-yarn install
-```
-
-or
-
-```sh
-npm install
-```
-
-3. Run the project in your local server
-
-```sh
-yarn start
-```
-
-or
-
-```sh
-npm run start
-```
-
-### Hopefully you will see your project in
-
-http://localhost:3000/ or http://localhost:3001/
+> - I've used react to develop the UI of this site.
+> - This website have buy product and dashboard.
+> - Also has log in method with email pass and direct google sign method.
+> - Dashboard have two section. One for normal user ad another for admin.
+> - Dashboard has different functionality for normal user and admin.
+> - You can manage order, manage product also.
+> - This is a niche website mainly focused on Sunglasses.
+> - This app contains different information for the for the hospital <em><strong>Light Ware</strong></em>.
+> - I have used font-awesome for icons. And also used tailwind for responsiveness and design.
+> - I have used react-router-dom to make this single page website.
+> - All the data loaded from mongodb and loaded with server
