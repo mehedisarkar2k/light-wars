@@ -2,12 +2,12 @@ import React from "react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 const Ratings = ({ ratings }) => {
-  const numRating = +ratings;
-  const ratingFloor = Math.floor(numRating);
-  const ratingRound = Math.round(numRating);
+  const numRating = +ratings; // 3.82
+  const ratingFloor = Math.floor(numRating); // 3
+  const ratingRound = Math.round(numRating); // 4
 
-  const halfStart = ratingRound - ratingFloor;
-  const star = 5 - ratingRound;
+  const halfStart = ratingRound - ratingFloor; // 1
+  const star = 5 - ratingRound; // 1
 
   return (
     <div className="flex items-center justify-center space-x-1 text-yellow-400">

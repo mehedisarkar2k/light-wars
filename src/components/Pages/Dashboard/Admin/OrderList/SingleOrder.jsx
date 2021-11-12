@@ -2,7 +2,7 @@ import React from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 
-const SingleOrder = ({ order }) => {
+const SingleOrder = ({ order, deleteOrder }) => {
   return (
     <tbody>
       <tr className="w-full font-light text-gray-600 whitespace-no-wrap border">
@@ -19,7 +19,10 @@ const SingleOrder = ({ order }) => {
             <span className="fill-current text-green-500 material-icons cursor-pointer">
               <BsPencilSquare />
             </span>
-            <span className="fill-current text-red-500 material-icons cursor-pointer">
+            <span
+              onClick={() => deleteOrder(order._id)}
+              className="fill-current text-red-500 material-icons cursor-pointer"
+            >
               <MdDeleteOutline />
             </span>
           </div>

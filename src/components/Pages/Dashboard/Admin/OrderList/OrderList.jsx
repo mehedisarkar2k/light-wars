@@ -5,12 +5,27 @@ import SingleOrder from "./SingleOrder";
 const OrderList = () => {
   const [orders, setOrders] = useState();
   const { user } = useAuth();
+  const [isDelete, setIsDelete] = useState(null);
+
+  const deleteOrder = (id) => {
+    fetch(`http://localhost:5000/order/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          setIsDelete(!isDelete);
+        } else {
+          setIsDelete(false);
+        }
+      });
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, [user.email]);
+  }, [user.email, isDelete]);
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg py-6">
@@ -27,7 +42,11 @@ const OrderList = () => {
             </thead>
 
             {orders?.map((order) => (
-              <SingleOrder key={order._id} order={order} />
+              <SingleOrder
+                key={order._id}
+                order={order}
+                deleteOrder={deleteOrder}
+              />
             ))}
           </table>
         </div>

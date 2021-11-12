@@ -4,12 +4,27 @@ import useAuth from "../../../../../hooks/useAuth";
 const MyOrder = () => {
   const [myOrders, setMyOrders] = useState();
   const { user } = useAuth();
+  const [isDelete, setIsDelete] = useState(null);
+
+  const deleteOrder = (id) => {
+    fetch(`http://localhost:5000/order/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          setIsDelete(!isDelete);
+        } else {
+          setIsDelete(false);
+        }
+      });
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, [user.email]);
+  }, [user.email, isDelete]);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 mt-5 gap-4">
@@ -26,7 +41,10 @@ const MyOrder = () => {
           <p className="text-gray-600">{myOrder.product.descriptions}</p>
 
           <div className="flex items-center justify-center mt-3">
-            <button className="btn btn-danger px-3 py-1 text-lg bg-red-300 hover:bg-red-200 text-gray-800">
+            <button
+              onClick={() => deleteOrder(myOrder._id)}
+              className="btn btn-danger px-3 py-1 text-lg bg-red-300 hover:bg-red-200 text-gray-800"
+            >
               Cancel Order
             </button>
           </div>
