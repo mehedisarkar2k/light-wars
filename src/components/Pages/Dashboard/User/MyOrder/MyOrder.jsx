@@ -59,7 +59,7 @@ const MyOrder = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="1500"
-      className="grid grid-cols-2 md:grid-cols-3 mt-5 gap-4"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 mt-5 gap-4"
     >
       {myOrders?.map((myOrder) => (
         <div key={myOrder._id} className="rounded-md p-4 bg-white">
