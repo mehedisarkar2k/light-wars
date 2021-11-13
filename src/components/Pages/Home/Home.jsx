@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
@@ -16,6 +17,7 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <ScrollToTop />
       <Nav />
       <Banner />
       <Categories />

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import Nav from "../../Shared/Nav/Nav";
 import ExploreBanner from "../Explore/Banner/ExploreBanner";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const PlaceOrder = () => {
   const [product, setProduct] = useState({});
@@ -63,6 +64,7 @@ const PlaceOrder = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Nav />
       <ExploreBanner>
         <div className="mt-10">
@@ -187,6 +189,7 @@ const PlaceOrder = () => {
 
                 <div className="flex items-center justify-start">
                   <input
+                    defaultChecked
                     id="terms-and-privacy"
                     name="terms-and-privacy"
                     type="checkbox"

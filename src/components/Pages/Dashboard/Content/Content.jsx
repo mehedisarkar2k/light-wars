@@ -16,7 +16,7 @@ const Content = ({ path }) => {
   const { admin } = useAuth();
 
   return (
-    <div className="ml-0 md:ml-60 px-10 bg-teal-50 pt-10 pb-20">
+    <div className="ml-0 md:ml-60 px-10 bg-teal-50 pt-10 pb-20 min-h-screen">
       <Switch>
         <Route exact path={path}>
           <UserProfile />

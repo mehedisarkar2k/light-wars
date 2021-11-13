@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../Shared/Footer/Footer";
 import Nav from "../../Shared/Nav/Nav";
 import Product from "../../Shared/Product/Product";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import ExploreBanner from "./Banner/ExploreBanner";
 
 const Explore = () => {
@@ -16,6 +17,8 @@ const Explore = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <ScrollToTop />
+
       <Nav />
       <ExploreBanner />
 

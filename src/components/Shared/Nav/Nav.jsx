@@ -168,6 +168,7 @@ function Nav() {
                 className=" px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
                 <NavLink
+                  onClick={() => setIsOpen(!isOpen)}
                   activeClassName="text-teal-400 font-bold"
                   to="/home"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
@@ -176,6 +177,7 @@ function Nav() {
                 </NavLink>
 
                 <NavLink
+                  onClick={() => setIsOpen(!isOpen)}
                   activeClassName="text-teal-400 font-bold"
                   to="/explore"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
@@ -185,6 +187,7 @@ function Nav() {
 
                 {user?.email && (
                   <NavLink
+                    onClick={() => setIsOpen(!isOpen)}
                     activeClassName="text-teal-400 font-bold"
                     to="/dashboard"
                     className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
@@ -194,6 +197,7 @@ function Nav() {
                 )}
 
                 <NavLink
+                  onClick={() => setIsOpen(!isOpen)}
                   activeClassName="text-teal-400 font-bold"
                   to="/about"
                   className="block text-lg tracking-wide px-3 py-1 rounded-3xl"
