@@ -44,19 +44,16 @@ function App() {
             <Route path="/about">
               <AboutUs />
             </Route>
-            {
-              <>
-                <Route path="/login">
-                  <Login />
-                </Route>
 
-                <Route path="/register">
-                  <Register />
-                </Route>
-              </>
-            }
+            <Route path="/login">
+              <Login />
+            </Route>
 
-            <Route path="*">
+            <Route path="/register">
+              <Register />
+            </Route>
+
+            <Route path="/*">
               <NotFound />
             </Route>
           </Switch>

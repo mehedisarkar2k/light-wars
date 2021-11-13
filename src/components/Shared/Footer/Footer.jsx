@@ -123,7 +123,7 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-col items-center text-xl text-darkBlue">
-            <h2 className="text-lg mb-1">We Accepted</h2>
+            <h2 className="text-lg mb-1">We Accept</h2>
             <div className="flex items-center space-x-4">
               <FaCcVisa />
               <BsPaypal />
