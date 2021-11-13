@@ -77,16 +77,18 @@ const PlaceOrder = () => {
             <h3 className="text-teal-500 text-4xl text-center mb-3">
               Thank you for choosing us!
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="">
+            <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto">
+              <div className="md:p-10 mx-auto text-center mt-3">
                 <img
                   src={product?.img}
                   alt=""
-                  className="h-72 p-10 rounded-3xl"
+                  className="h-auto mb-4 rounded-xl w-full object-cover"
                 />
 
                 <div className="">
-                  <div className="text-white text-3xl">{product?.name}</div>
+                  <h2 className="text-white text-2xl sm:text-3xl text-left">
+                    {product?.name}
+                  </h2>
                   <div className="flex flex-col space-y-4 text-white md:p-5">
                     <div className="">Quantity: {orderData.quantity}</div>
                     <div className="">
@@ -100,9 +102,9 @@ const PlaceOrder = () => {
 
               <form
                 onSubmit={makeOrder}
-                className="mb-0 space-y-3 flex flex-col items-center justify-center"
+                className="mb-0 space-y-3 sm:px-5 flex flex-col items-center justify-center"
               >
-                <div>
+                <div className="w-full">
                   <label
                     htmlFor="name"
                     className="block text-sm font-medium text-white"
@@ -123,7 +125,7 @@ const PlaceOrder = () => {
                   </div>
                 </div>
 
-                <div>
+                <div className="w-full">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-white"
@@ -144,7 +146,7 @@ const PlaceOrder = () => {
                   </div>
                 </div>
 
-                <div className="w-full md:px-5">
+                <div className="w-full">
                   <label
                     htmlFor="address"
                     className="block text-sm font-medium text-white"
@@ -164,7 +166,7 @@ const PlaceOrder = () => {
                   </div>
                 </div>
 
-                <div className="w-full md:px-5">
+                <div className="w-full">
                   <label
                     htmlFor="quantity"
                     className="block text-sm font-medium text-white"
