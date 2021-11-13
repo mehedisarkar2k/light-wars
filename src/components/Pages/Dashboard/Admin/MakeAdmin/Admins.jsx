@@ -75,7 +75,7 @@ const Admins = () => {
       <div className="bg-white rounded-lg shadow-lg py-6">
         <div className="block overflow-x-auto mx-6">
           <table
-            data-aos="zoom-in"
+            data-aos="fade-up"
             data-aos-duration="1500"
             className="w-full text-left rounded-lg"
           >

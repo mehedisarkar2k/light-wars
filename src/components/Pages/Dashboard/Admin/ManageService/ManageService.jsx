@@ -59,9 +59,9 @@ const ManageService = () => {
 
   return (
     <div
-      data-aos="zoom-in"
+      data-aos="fade-up"
       data-aos-duration="1500"
-      className="grid grid-cols-3 gap-4"
+      className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"
     >
       {services.map((service) => (
         <SingleService

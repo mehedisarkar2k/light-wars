@@ -26,7 +26,7 @@ function Nav() {
 
   return (
     // <div className="fixed top-0 left-0 w-screen">
-    <div className="w-full">
+    <div style={{ zIndex: "999" }} className="w-full z-50">
       <nav
         className={`px-10 sm:px-0 lg:px-10 py-2 md:py-4 lg:py-2 bg-transparent fixed top-0 w-full text-gray-100 bg-gray-200 ${
           !windowHeight && "md:bg-transparent"
@@ -159,7 +159,10 @@ function Nav() {
           leaveTo="opacity-0 scale-95"
         >
           {(ref) => (
-            <div className="text-center md:hidden" id="mobile-menu">
+            <div
+              className="text-gray-700 text-center md:hidden"
+              id="mobile-menu"
+            >
               <div
                 ref-setter={ref}
                 className=" px-2 pt-2 pb-3 space-y-1 sm:px-3"

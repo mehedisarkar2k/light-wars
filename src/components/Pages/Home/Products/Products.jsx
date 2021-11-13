@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import Spinner from "../../../Shared/Loader/Spinner";
 import Product from "../../../Shared/Product/Product";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     fetch("https://light-wars.herokuapp.com/glasses?limit=6")
@@ -28,7 +30,10 @@ const Products = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center mt-10">
+        <div
+          onClick={() => history.push("/explore")}
+          className="flex items-center justify-center mt-10"
+        >
           <button className="btn btn-primary inline-block">
             See All Products
           </button>

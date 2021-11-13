@@ -16,7 +16,7 @@ const Banner = () => {
         <div className="min-h-screen flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div
-              data-aos="zoom-in"
+              data-aos="fade-up"
               data-aos-duration="1500"
               className="text-white text-left"
             >

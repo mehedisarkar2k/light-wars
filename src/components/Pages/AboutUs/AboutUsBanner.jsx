@@ -7,7 +7,7 @@ const AboutUsBanner = () => {
       style={{
         background: `linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),url(${BannerBg}) center center/cover fixed no-repeat`,
       }}
-      className=""
+      className="z-0"
     >
       <div className="my-container">
         <div
@@ -15,7 +15,7 @@ const AboutUsBanner = () => {
           className="flex items-center justify-center"
         >
           <div
-            data-aos="zoom-in"
+            data-aos="fade-up"
             data-aos-duration="1500"
             className="text-white text-left flex items-center justify-center flex-col"
           >

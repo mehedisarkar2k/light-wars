@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import useSignMethod from "../../../hooks/useSignMethod";
 
 const Login = () => {
+  const history = useHistory();
   const { handleGoogleSignIn, handleEmailPassSignIn } = useSignMethod();
 
   useEffect(() => {
@@ -15,7 +16,6 @@ const Login = () => {
   const onSubmit = (data) => {
     handleEmailPassSignIn(data.email, data.password);
   };
-  const history = useHistory();
 
   return (
     <div className="bg-teal-50 ">

@@ -11,7 +11,7 @@ const ExploreBanner = ({ children }) => {
     >
       <div className="my-container">
         <div
-          data-aos="zoom-in"
+          data-aos="fade-up"
           data-aos-duration="1500"
           style={{ minHeight: "60vh" }}
           className="flex items-center justify-center"

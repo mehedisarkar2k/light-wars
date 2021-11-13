@@ -15,7 +15,7 @@ const Explore = () => {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Nav />
       <ExploreBanner />
 

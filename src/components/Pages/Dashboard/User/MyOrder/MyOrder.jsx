@@ -45,7 +45,7 @@ const MyOrder = () => {
   if (myOrders.length === 0)
     return (
       <h1
-        data-aos="zoom-in"
+        data-aos="fade-up"
         data-aos-duration="1500"
         className="text-red-500 text-center py-20 text-3xl"
       >
@@ -57,7 +57,7 @@ const MyOrder = () => {
 
   return (
     <div
-      data-aos="zoom-in"
+      data-aos="fade-up"
       data-aos-duration="1500"
       className="grid grid-cols-2 md:grid-cols-3 mt-5 gap-4"
     >

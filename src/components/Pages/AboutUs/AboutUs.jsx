@@ -17,7 +17,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Nav />
 
       <AboutUsBanner />

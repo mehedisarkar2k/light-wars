@@ -11,7 +11,11 @@ const UserProfile = () => {
 
   return (
     <div className=" flex min-h-screen items-center justify-center">
-      <div className="-mt-32 text-center flex-col flex items-center justify-center space-y-4">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        className="-mt-32 text-center flex-col flex items-center justify-center space-y-4"
+      >
         <img
           className="h-20 w-20 rounded-full"
           src={user?.photoURL || userImg}

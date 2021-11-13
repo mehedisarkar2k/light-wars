@@ -80,6 +80,7 @@ const Side = () => {
               <>
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/my-order`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -91,6 +92,7 @@ const Side = () => {
 
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/payment`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -102,6 +104,7 @@ const Side = () => {
 
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/review`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -117,6 +120,7 @@ const Side = () => {
               <>
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/order-list`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -127,6 +131,7 @@ const Side = () => {
                 </li>
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/add-service`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -137,6 +142,7 @@ const Side = () => {
                 </li>
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/make-admin`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -148,6 +154,7 @@ const Side = () => {
                 </li>
                 <li>
                   <NavLink
+                    onClick={() => setMenuShow(false)}
                     to={`${url}/manage-service`}
                     className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
                     activeClassName="text-gray-800 font-medium bg-gray-100 transform translate-x-1"
@@ -163,6 +170,7 @@ const Side = () => {
           <ul className="pt-4 pb-2 space-y-1 text-sm">
             <li onClick={() => history.push("/")}>
               <Link
+                onClick={() => setMenuShow(false)}
                 to="/"
                 className="flex items-center p-2 space-x-3 rounded-md hover:text-gray-800 hover:font-medium hover:bg-gray-100 transform hover:translate-x-1 transition"
               >

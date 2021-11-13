@@ -99,7 +99,7 @@ const OrderList = () => {
   if (orders.length === 0)
     return (
       <h1
-        data-aos="zoom-in"
+        data-aos="fade-up"
         data-aos-duration="1500"
         className="text-red-500 text-center py-20 text-3xl"
       >
@@ -116,7 +116,7 @@ const OrderList = () => {
       <div className="bg-white rounded-lg shadow-lg py-6">
         <div className="block overflow-x-auto mx-6">
           <table
-            data-aos="zoom-in"
+            data-aos="fade-up"
             data-aos-duration="1500"
             className="w-full text-left rounded-lg"
           >

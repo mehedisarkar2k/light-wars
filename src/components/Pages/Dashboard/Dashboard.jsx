@@ -3,7 +3,7 @@ import Side from "./Nav/Side/Side";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Side />
     </div>
   );
