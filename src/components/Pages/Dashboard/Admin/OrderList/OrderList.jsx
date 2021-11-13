@@ -45,7 +45,7 @@ const OrderList = () => {
 
   const approveProduct = (order) => {
     const updateOrder = { ...order.order };
-    updateOrder.status = "approved";
+    updateOrder.status = "shipped";
 
     if (orders.length !== 0) {
       Swal.fire({
@@ -58,7 +58,7 @@ const OrderList = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
-            title: "Successfully added new service",
+            title: "Successfully order status updated",
             showClass: {
               popup: "animate__animated animate__fadeInDown",
             },

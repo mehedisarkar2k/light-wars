@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Swal from "sweetalert2";
 import Spinner from "../../../../Shared/Loader/Spinner";
+import ScrollToTop from "../../../ScrollToTop/ScrollToTop";
 import SingleService from "./SingleService";
 
 const ManageService = () => {
@@ -63,6 +64,7 @@ const ManageService = () => {
       data-aos-duration="1500"
       className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"
     >
+      <ScrollToTop />
       {services.map((service) => (
         <SingleService
           key={service._id}
