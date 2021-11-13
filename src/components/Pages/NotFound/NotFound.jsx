@@ -1,9 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import p404 from "../../../images/404.png";
 
 const NotFound = () => {
-  const history = useHistory();
   return (
     <div className="bg-gray-50">
       <div className="my-container">
@@ -13,12 +12,9 @@ const NotFound = () => {
           </h2>
 
           <div className="flex items-center justify-center mt-4">
-            <button
-              onClick={() => history.goBack()}
-              className="btn btn-primary"
-            >
-              Go Back
-            </button>
+            <Link to="/" className="btn btn-primary">
+              Go Home
+            </Link>
           </div>
 
           <img src={p404} alt="" />
